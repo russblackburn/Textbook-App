@@ -5,7 +5,8 @@
         "phone":"8015559130",
         "email":"mike@gmail.com",
         "imageURL":"img/users/mike1000.jpg",
-        "rating":5
+        "rating":5,
+        "sellerID":1
     },
 
     {
@@ -14,7 +15,8 @@
         "phone":"8015552839",
         "email":"mandm@gmail.com",
         "imageURL":"img/users/mrcool.jpg",
-        "rating":3
+        "rating":3,
+        "sellerID":2
     },
 
     {
@@ -23,7 +25,8 @@
         "phone":"8015559372",
         "email":"susy@yahoo.com",
         "imageURL":"img/users/BuyMyBook.jpg",
-        "rating":5
+        "rating":5,
+        "sellerID":3
     },
 
     {
@@ -32,7 +35,8 @@
         "phone":"8375551326",
         "email":"Jordan.hale@gmail.com",
         "imageURL":"img/users/best_books10.jpg",
-        "rating":2
+        "rating":2,
+        "sellerID":4
     },
 
     {
@@ -41,7 +45,8 @@
         "phone":"8015559372",
         "email":"susy@gmail.com",
         "imageURL":"img/users/BuyMyBook.jpg",
-        "rating":5
+        "rating":5,
+        "sellerID":5
     },
 
     {
@@ -50,7 +55,8 @@
         "phone":"8018376622",
         "email":"leeerroyy@gmail.com",
         "imageURL":"img/users/leeeeroy.jpg",
-        "rating":1
+        "rating":1,
+        "sellerID":6
     },
 
     {
@@ -59,7 +65,8 @@
         "phone":"8918472240",
         "email":"cooper@hotmail.com",
         "imageURL":"img/users/cooper.jpg",
-        "rating":1
+        "rating":1,
+        "sellerID":7
     },
 
     {
@@ -68,7 +75,8 @@
         "phone":"8013859932",
         "email":"charlyp@yahoo.com",
         "imageURL":"img/users/charly.jpg",
-        "rating":1
+        "rating":1,
+        "sellerID":8
     },
 
     {
@@ -77,7 +85,8 @@
         "phone":"8018376622",
         "email":"leeerroyy@gmail.com",
         "imageURL":"img/users/leeeeroy.jpg",
-        "rating":1
+        "rating":1,
+        "sellerID":9
     },
 
     {
@@ -86,7 +95,8 @@
         "phone":"8375551326",
         "email":"Jordan.hale@gmail.com",
         "imageURL":"img/users/best_books10.jpg",
-        "rating":2
+        "rating":2,
+        "sellerID":10
     },
 
     {
@@ -95,6 +105,7 @@
         "phone":"8389204833",
         "email":"johnnyrotten@gmail.com",
         "imageURL":"img/users/j_rot.jpg",
-        "rating":1
+        "rating":1,
+        "sellerID":11
     }
 ]
