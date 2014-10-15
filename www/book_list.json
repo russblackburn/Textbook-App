@@ -10,17 +10,7 @@
 		"trade":true,
 		"value":"25.00",
 		"dateListed":"2014-09-28 12:34:00",
-		"sellerInfo":
-		[
-			{
-				"userName":"mike1000",
-				"fullName":"Mike Howard",
-				"phone":"8015559130",
-				"email":"mike@gmail.com",
-				"imageURL":"img/users/mike1000.jpg",
-				"rating":5
-			}
-		]	
+		"sellerID":1
 	},
 
 	{
@@ -33,17 +23,7 @@
 		"trade":false,
 		"value":"17.99",
 		"dateListed":"2014-10-00 07:01:00",
-		"sellerInfo":
-		[
-			{
-				"userName":"mrcool",
-				"fullName":"Merril Morrison",
-				"phone":"8015552839",
-				"email":"mandm@gmail.com",
-				"imageURL":"img/users/mrcool.jpg",
-				"rating":3
-			}
-		]
+        "sellerID":2
 	},
 
 	{
@@ -56,17 +36,7 @@
 		"trade":true,
 		"value":"8.00",
 		"dateListed":"2014-07-14 18:51:20",
-		"sellerInfo":
-		[
-			{
-				"userName":"BuyMyBook",
-				"fullName":"Susan Monsen",
-				"phone":"8015559372",
-				"email":"susy@yahoo.com",
-				"imageURL":"img/users/BuyMyBook.jpg",
-				"rating":5
-			}
-		]
+        "sellerID":3
 	},
 
 	{
@@ -79,21 +49,11 @@
 		"trade":false,
 		"value":"279.99",
 		"dateListed":"2014-07-19 14:39:51",
-		"sellerInfo":
-		[
-			{
-				"userName":"best_books10",
-				"fullName":"Jordan Hale",
-				"phone":"8375551326",
-				"email":"Jordan.hale@gmail.com",
-				"imageURL":"img/users/best_books10.jpg",
-				"rating":2
-			}
-		]
+        "sellerID":4
 	},
 
 	{
-		"id":6,
+		"id":5,
 		"title":"JavaScript the Good Parts",
 		"isbn-10":"0596517742",
 		"isbn-13":"978-0596517748",
@@ -102,21 +62,11 @@
 		"trade":true,
 		"value":"10.99",
 		"dateListed":"2014-03-20 22:21:45",
-		"sellerInfo":
-		[
-			{
-				"userName":"BuyMyBook",
-				"fullName":"Susan Monsen",
-				"phone":"8015559372",
-				"email":"susy@gmail.com",
-				"imageURL":"img/users/BuyMyBook.jpg",
-				"rating":5
-			}
-		]
+        "sellerID":5
 	},
 
 	{
-		"id":7,
+		"id":6,
 		"title":"Node.js In Action",
 		"isbn-10":"1617290572",
 		"isbn-13":"978-1617290572",
@@ -125,21 +75,11 @@
 		"trade":true,
 		"value":"29.99",
 		"dateListed":"2014-05-20 14:21:45",
-		"sellerInfo":
-		[
-			{
-				"userName":"leeeeroy",
-				"fullName":"Leroy Jenkins",
-				"phone":"8018376622",
-				"email":"leeerroyy@gmail.com",
-				"imageURL":"img/users/leeeeroy.jpg",
-				"rating":1
-			}
-		]
+        "sellerID":6
 	},
 
 	{
-		"id":8,
+		"id":7,
 		"title":"College Physics",
 		"isbn-10":"1285737024",
 		"isbn-13":"978-1285737027",
@@ -148,21 +88,11 @@
 		"trade":true,
 		"value":"294.99",
 		"dateListed":"2014-08-10 19:51:45",
-		"sellerInfo":
-		[
-			{
-				"userName":"cooper",
-				"fullName":"Alice Cooper",
-				"phone":"8918472240",
-				"email":"cooper@hotmail.com",
-				"imageURL":"img/users/cooper.jpg",
-				"rating":1
-			}
-		]
+        "sellerID":7
 	},
 
 	{
-		"id":9,
+		"id":8,
 		"title":"Physics Laboratory Experiments",
 		"isbn-10":"128573856X",
 		"isbn-13":"978-1285738567",
@@ -171,21 +101,11 @@
 		"trade":false,
 		"value":"164.99",
 		"dateListed":"2014-09-19 09:30:54",
-		"sellerInfo":
-		[
-			{
-				"userName":"charly",
-				"fullName":"Charles Parker",
-				"phone":"8013859932",
-				"email":"charlyp@yahoo.com",
-				"imageURL":"img/users/charly.jpg",
-				"rating":1
-			}
-		]
+        "sellerID":8
 	},
 
 	{
-		"id":10,
+		"id":9,
 		"title":"Organic Chemistry",
 		"isbn-10":"1118133579",
 		"isbn-13":"978-1118133576",
@@ -194,21 +114,11 @@
 		"trade":true,
 		"value":"145.00",
 		"dateListed":"2014-09-26 11:02:09",
-		"sellerInfo":
-		[
-			{
-				"userName":"leeeeroy",
-				"fullName":"Leroy Jenkins",
-				"phone":"8018376622",
-				"email":"leeerroyy@gmail.com",
-				"imageURL":"img/users/leeeeroy.jpg",
-				"rating":1
-			}
-		]
+        "sellerID":9
 	},
 
 	{
-		"id":11,
+		"id":10,
 		"title":"Essential Cell Biology",
 		"isbn-10":"0815341296",
 		"isbn-13":"978-0815341291",
@@ -217,21 +127,11 @@
 		"trade":true,
 		"value":"129.99",
 		"dateListed":"2014-10-05 11:58:39",
-		"sellerInfo":
-		[
-			{
-				"userName":"best_books10",
-				"fullName":"Jordan Hale",
-				"phone":"8375551326",
-				"email":"Jordan.hale@gmail.com",
-				"imageURL":"img/users/best_books10.jpg",
-				"rating":2
-			}
-		]
+        "sellerID":10
 	},
 
 	{
-		"id":12,
+		"id":11,
 		"title":"JavaScript Patterns",
 		"isbn-10":"0596806752",
 		"isbn-13":"978-0596806750",
@@ -240,17 +140,7 @@
 		"trade":true,
 		"value":"14.99",
 		"dateListed":"2014-10-10 23:50:19",
-		"sellerInfo":
-		[
-			{
-				"userName":"j_rot",
-				"fullName":"Johnny Rotten",
-				"phone":"8389204833",
-				"email":"johnnyrotten@gmail.com",
-				"imageURL":"img/users/j_rot.jpg",
-				"rating":1
-			}
-		]
+        "sellerID":11
 	}
 
 ]
