@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {
+.controller('NewCtrl', function($scope) {
 })
 
 .controller('SearchCtrl', function($scope, Textbooks) {
