@@ -1,5 +1,23 @@
-<ion-view title="Dashboard">
-  <ion-content class="padding">
-    <h1>Dash</h1>
-  </ion-content>
+<ion-view title="Find A Book">
+    <ion-content>
+        <h1></h1>
+
+        <div class="list list-inset">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" ng-model="query" placeholder="Search by: Book or ISBN">
+            </label>
+        </div>
+
+        <ul class="list">
+            <li class="item item-icon-right" ng-repeat="book in books | filter:query | orderBy:orderProp">
+                <i class="icon ion-ios7-arrow-right"></i>
+                <span>{{book.title}}</span>
+                <p>${{book.value}}</p>
+                <p>ISBN: {{book.isbn13}}</p>
+            </li>
+        </ul>
+
+
+    </ion-content>
 </ion-view>
