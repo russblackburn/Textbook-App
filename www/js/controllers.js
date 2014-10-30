@@ -13,8 +13,13 @@ angular.module('starter.controllers', [])
 })
 
 .controller('TextbookDetailCtrl', function($scope, $stateParams, Textbooks) {
-  $scope.textbooks = Textbook.get($stateParams.textbookId);
+  $scope.textbooks = Textbooks.get($stateParams.textbookId);
 })
 
 .controller('AccountCtrl', function($scope) {
+})
+
+.controller('BookDetailCtrl', function($scope, $stateParams, Book) {
+  $scope.book = Book.get($stateParams.bookId);
+  console.log($scope.book);
 });
