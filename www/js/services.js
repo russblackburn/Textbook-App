@@ -3,17 +3,16 @@ angular.module('starter.services', [])
 /**
  * A simple example service that returns some data.
  */
-.factory('Textbooks', function() {
+.factory('Textbooks', function($http) {
   // Might use a resource here that returns a JSON array
-
+  var textbooks = [];
+  $http.get('data/book_list.json').success(function(data){
+      textbooks = data;
+      // console.log(data);
+  });
   // Some fake testing data
-  var textbooks = [
-    { id: 0, name: 'Astronomy' },
-    { id: 1, name: 'PHP' },
-    { id: 2, name: 'Javascript for Dummys' },
-    { id: 3, name: 'HTML and CSS basics' }
-  ];
 
+  // console.log(textbooks[3]);
   return {
     all: function() {
       return textbooks;
