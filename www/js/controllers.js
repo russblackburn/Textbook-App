@@ -1,6 +1,11 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {
+.controller('DashCtrl', function($scope, $http) {
+        $http.get('book_list.json').success(function(data){
+            $scope.books = data;
+        });
+
+        $scope.orderProp = 'dateListed';
 })
 
 .controller('SearchCtrl', function($scope, Textbooks) {
