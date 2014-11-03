@@ -8,8 +8,46 @@ angular.module('starter.controllers', [])
   $scope.orderProp = 'dateListed';
 })
 
-.controller('SearchCtrl', function($scope, Textbooks) {
+.controller('NewCtrl', function($scope, Textbooks) {
   $scope.textbooks = Textbooks.all();
+  $scope.showValidationMessages = false;
+  $scope.textbook = {
+          "condition":{
+              'value': 4,
+              'description': "This book is in great condition"
+          }
+      }
+  $scope.conditions = [
+      {
+          "description": "This book sucks"
+      },
+      {
+          "description": "This book sucks a little"
+      },
+      {
+          "description": "This book is ok"
+      },
+      {
+          "description": "This book is in great condition"
+      },
+      {
+          "description": "This book is awesome"
+      }
+  ];
+  $scope.submit = function(tbForm){
+      $scope.showValidationMessages = true;
+
+      if(!tbForm.$invalid){
+          console.log("TB",tbForm);
+      }
+
+  };
+  $scope.updateCondition = function(tb){
+      tb.condition.description = $scope.conditions[tb.condition.value -1].description;
+      console.log("TB", tb);
+  };
+  $scope.myCondition = $scope.conditions[$scope.sliderValue];
+  console.log("mycondtion",$scope.myCondition);
 })
 
 .controller('TextbookDetailCtrl', function($http, $scope, $stateParams, Textbooks) {
