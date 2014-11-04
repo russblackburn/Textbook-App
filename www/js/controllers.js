@@ -5,9 +5,7 @@ angular.module('starter.controllers', [])
       $scope.books = data;
   });
 
-//  $scope.orderProp = 'title';
-
-  $scope.orderProp = 'dateListed';
+  $scope.orderProp = 'title';
 
 
 })
@@ -50,8 +48,6 @@ angular.module('starter.controllers', [])
       tb.condition.description = $scope.conditions[tb.condition.value -1].description;
       console.log("TB", tb);
   };
-  $scope.myCondition = $scope.conditions[$scope.sliderValue];
-  console.log("mycondtion",$scope.myCondition);
 })
 
 .controller('TextbookDetailCtrl', function($http, $scope, $stateParams, Textbooks) {
