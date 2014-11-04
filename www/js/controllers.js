@@ -5,7 +5,7 @@ angular.module('starter.controllers', [])
       $scope.books = data;
   });
 
-  $scope.orderProp = 'dateListed';
+  $scope.orderProp = 'title';
 })
 
 .controller('SearchCtrl', function($scope, Textbooks) {
