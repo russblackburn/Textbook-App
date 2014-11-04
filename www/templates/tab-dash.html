@@ -10,7 +10,8 @@
         </div>
 
         <ion-list class="list">
-            <ion-item class="item item-icon-right" ng-repeat="book in books | filter:query | orderBy:orderProp" href="#/tab/textbook/{{book.id}}">
+            <ion-item class="item item-icon-right item-avatar" ng-repeat="book in books | filter:query | orderBy:orderProp" href="#/tab/textbook/{{book.id}}">
+                <img ng-src="{{book.imageURL}}">
                 <i class="icon ion-ios7-arrow-right"></i>
                 <span>{{book.title}}</span>
                 <p>${{book.value}}</p>

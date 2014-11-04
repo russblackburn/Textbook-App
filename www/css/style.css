@@ -1,1 +1,8 @@
 /* Empty. Add your own CSS if you like */
+img{
+  width: 100%;
+}
+div.textbook-thumbnail{
+  width: 50%;
+  float: left;
+}

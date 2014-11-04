@@ -13,16 +13,35 @@ angular.module('starter.controllers', [])
 })
 
 .controller('TextbookDetailCtrl', function($http, $scope, $stateParams, Textbooks) {
-  // var textbooks = Textbooks.all();
-  // console.log(textbooks[1]);
-  // $scope.textbook = textbooks[2];
+  function bookCondition(num){
+    var val;
+    switch(num){
+      case 1:
+        val = 'Bad';
+      break;
+      case 2:
+        val = 'Poor';
+      break;
+      case 3:
+        val = 'Fair';
+      break;
+      case 4:
+        val = 'Good';
+      break;
+      case 5:
+        val = 'Excellent';
+      break;
+    }
+    return val;
+  }
   $http.get('data/book_list.json').success(function(data){
       var books = data;
       for (var key in books) {
         if (books.hasOwnProperty(key)) {
           if ($stateParams.textbookId == books[key]['id']) {
-          	console.log(books[key]);
           	$scope.textbook = books[key];
+            console.log($scope.textbook.condition);
+            $scope.textbook.condition = bookCondition($scope.textbook.condition);
           }
         }
       }
@@ -32,7 +51,6 @@ angular.module('starter.controllers', [])
       for (var key in user) {
         if (user.hasOwnProperty(key)) {
           if ($scope.textbook['sellerID'] == user[key]['sellerID']) {
-          	console.log(user[key]);
           	$scope.seller = user[key];
           }
         }
