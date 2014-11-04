@@ -6,6 +6,7 @@ angular.module('starter.controllers', [])
   });
 
   $scope.orderProp = 'dateListed';
+
 })
 
 .controller('NewCtrl', function($scope, Textbooks) {
