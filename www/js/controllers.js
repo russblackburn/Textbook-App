@@ -5,7 +5,11 @@ angular.module('starter.controllers', [])
       $scope.books = data;
   });
 
-  $scope.orderProp = 'title';
+//  $scope.orderProp = 'title';
+
+  $scope.orderProp = 'dateListed';
+
+
 })
 
 .controller('NewCtrl', function($scope, Textbooks) {
