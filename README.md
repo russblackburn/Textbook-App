@@ -38,12 +38,12 @@ Textbook-App
 
     If the scanner does not work you will need to delete a file, directory and follow a few other steps
 
-    1. Delete /plugins/ios.json
-    2. Delete /platforms/ios
+    1. Delete file /plugins/ios.json
+    2. Delete directory /platforms/ios
     3. then $ ionic platform add ios
     4. then $ ionic build ios
     5. then $ ionic run ios
 
     This should force the ios.json file to recompile and add the scanner plugin
 
-    (if running directly from Xcode, build an ios version and open platforms/ios in Xcode)
+    (if running directly from Xcode, build an ios version and open directory platforms/ios in Xcode)
