@@ -1,11 +1,29 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope, $http) {
+    //injected $cordovaBarcodeScanner service
+.controller('DashCtrl', function($scope, $http, $cordovaBarcodeScanner) {
   $http.get('data/book_list.json').success(function(data){
       $scope.books = data;
   });
 
   $scope.orderProp = 'title';
+
+        //adding barcode scanner for textbook upc
+        $scope.scanBarcode = function() {
+            $cordovaBarcodeScanner.scan().then(function(imageData) {
+
+                $scope.barcoderesults = imageData.text;
+                document.getElementById("textbookInput").value = imageData.text;
+
+                if (imageData.cancelled == 1) {
+                    alert("Cancelled Barcode Scan");
+                } else {
+                    console.log("Scan Not Cancelled ->" + imageData.cancelled);
+                }
+            }, function(error) {
+                console.log("An error happened -> " + error);
+            });
+        };
 
 
 })
