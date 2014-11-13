@@ -5,8 +5,10 @@
         <div class="list list-inset">
             <label class="item item-input">
                 <i class="icon ion-search placeholder-icon"></i>
-                <input type="text" ng-model="query" placeholder="Search by: Book or ISBN">
+                <!--added id and value attributes so that the barcode scanner controller can access the input field-->
+                <input id="textbookInput" value="" type="text" ng-model="query" placeholder="Search by: Book or ISBN">
             </label>
+
             <label> Sort by: </label>
                 <select ng-model="orderProp">
                     <option value="title">Title</option>
@@ -15,6 +17,9 @@
                     <option value="condition">Condition</option>
                 </select>
         </div>
+
+        <!--This is the button used for the barcode scanner-->
+        <button class="button" ng-click="scanBarcode()">Scan Textbook Barcode</button>
 
         <ion-list class="list">
             <ion-item class="item item-icon-right item-avatar" ng-repeat="book in books | filter:query | orderBy:orderProp" href="#/tab/textbook/{{book.id}}">
