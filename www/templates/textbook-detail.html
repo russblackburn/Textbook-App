@@ -1,16 +1,41 @@
-<!--
-  This template loads for the 'tab.friend-detail' state (app.js)
-  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
-  The FriendsCtrl pulls data from the Friends service (service.js)
-  The Friends service returns an array of friend data
--->
-<ion-view title="{{textbook.title}}">
+ <ion-view title="{{textbook.title}}" class="textbook-detail">
   <ion-content has-header="true" padding="true">
-	  <h3>${{textbook.value}}</h3>
-	  <img src="{{textbook.imageURL}}">
-		<h3>Seller: {{seller.userName}} ({{seller.fullName}})</h3>
-		<h3>Rating: {{seller.rating}}</h3>
-		<h3>Phone: {{seller.phone}}</h3>
-		<h3>email: {{seller.email}}</h3>
+    <div class="row">
+      <div class="col">
+        <img src="{{textbook.imageURL}}">  
+      </div>
+      <div class="col">
+        <h3>Price:</h3>
+        <p>${{textbook.value}}</p>
+        <h3>Condition:</h3>
+        <div class="row condition">
+            <i  class="col col-20 icon icon-left ion-ios7-star{{star}}"
+                ng-repeat="star in starsCon track by $index"></i>
+        </div>
+        <h3>Date Posted:</h3>
+        <p>{{textbook.dateListed}}</p>
+      </div>     
+    </div>
+    <div>
+      <div class="card">
+        <p class="item item-text-wrap center">{{textbook.trade_text}}</p>
+      </div>
+      <h1 class="title">Contact the Seller</h1>
+      <h2>{{seller.fullName}} ({{seller.userName}})</h2>
+      <div class="row">
+        <div class="col col-33"><a href="tel:{{seller.phone}}" class="button ion-android-call"></a></div>
+        <div class="col col-33"> <a href="sms:{{seller.phone}}" class="button ion-android-forums"></a></div>
+        <div class="col col-33"><a href="mailto:{{seller.email}}" class="button ion-android-mail"></a></div>
+      </div>
+      <h3 class="center">User Rating</h3>
+      <div class="row rating">
+        <i  class="col col-20 icon ion-ios7-star{{star}} center"
+            ng-repeat="star in starsRating track by $index"></i>
+      </div>
+      <h3>Email:</h3>
+      <p>{{seller.email}}</p>
+      <h3>Phone Number:</h3>
+      <p>{{seller.phone}}</p>
+    </div>
   </ion-content>
 </ion-view>

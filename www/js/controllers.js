@@ -74,22 +74,46 @@ angular.module('starter.controllers', [])
   // $scope.textbook = textbooks[2];
   $http.get('data/book_list.json').success(function(data){
       var books = data;
+      var condition;
+      var defaultCon = "-outline";
+      var conArray = [defaultCon,defaultCon,defaultCon,defaultCon,defaultCon];
       for (var key in books) {
         if (books.hasOwnProperty(key)) {
           if ($stateParams.textbookId == books[key]['id']) {
-          	console.log(books[key]);
-          	$scope.textbook = books[key];
+            $scope.textbook = books[key];
+            condition = books[key]['condition'];
+            conArray.length = 5;
+            for(var i = 0; i < condition; i++){
+              conArray[i] = "";
+            }
+            $scope.starsCon = conArray;
+
+            $scope.textbook['trade_text'] = (books[key]['trade'] == true ? books[key]['title']+' is up for trade, please make an offer' : books[key]['title']+' is not up for trade, cash payments only')
+
+            $scope.textbook.timestamp = books[key]['dateListed'].split(" ");
+            $scope.textbook.timestamp.day = $scope.textbook.timestamp[0].split("-");
+            $scope.textbook.timestamp.time_ = $scope.textbook.timestamp[1].split("-");
           }
         }
       }
   });
   $http.get('data/user_list.json').success(function(data){
       var user = data;
+      var rating;
+      var defaultVal = "-outline";
+      var ratingArray = [defaultVal,defaultVal,defaultVal,defaultVal,defaultVal];
+      $scope.stars = [];
       for (var key in user) {
         if (user.hasOwnProperty(key)) {
           if ($scope.textbook['sellerID'] == user[key]['sellerID']) {
-          	console.log(user[key]);
-          	$scope.seller = user[key];
+            $scope.seller = user[key];
+            rating = user[key]['rating'];
+            ratingArray.length = 5;
+            for(var i = 0; i < rating; i++){
+              ratingArray[i] = "";
+            }
+            // $scope.stars = JSON.stringify(ratingArray);
+            $scope.starsRating = ratingArray;
           }
         }
       }
