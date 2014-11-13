@@ -1,12 +1,12 @@
- <ion-view title="Business Law: Text and Cases" class="textbook-detail">
+ <ion-view title="{{textbook.title}}" class="textbook-detail">
   <ion-content has-header="true" padding="true">
     <div class="row">
       <div class="col">
-        <img src="img/books/business-law-text-and-cases.jpg">  
+        <img src="{{textbook.imageURL}}">  
       </div>
       <div class="col">
         <h3>Price:</h3>
-        <p>{{textbook.value}}</p>
+        <p>${{textbook.value}}</p>
         <h3>Condition:</h3>
         <div class="row condition">
             <i  class="col col-20 icon icon-left ion-ios7-star{{star}}"
@@ -17,14 +17,17 @@
       </div>     
     </div>
     <div>
+      <div class="card">
+        <p class="item item-text-wrap center">{{textbook.trade_text}}</p>
+      </div>
       <h1 class="title">Contact the Seller</h1>
       <h2>{{seller.fullName}} ({{seller.userName}})</h2>
       <div class="row">
-        <a href="tel:{{seller.phone}}" class="col col-33 button ion-android-call"></a>
-        <a href="sms:{{seller.phone}}" class="col col-33 button ion-android-forums"></a>
-        <a href="mailto:{{seller.email}}" class="col col-33 button ion-android-mail"></a>
+        <div class="col col-33"><a href="tel:{{seller.phone}}" class="button ion-android-call"></a></div>
+        <div class="col col-33"> <a href="sms:{{seller.phone}}" class="button ion-android-forums"></a></div>
+        <div class="col col-33"><a href="mailto:{{seller.email}}" class="button ion-android-mail"></a></div>
       </div>
-      <h3 class="center">Rating:</h3>
+      <h3 class="center">User Rating</h3>
       <div class="row rating">
         <i  class="col col-20 icon ion-ios7-star{{star}} center"
             ng-repeat="star in starsRating track by $index"></i>
