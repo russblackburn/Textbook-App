@@ -87,6 +87,12 @@ angular.module('starter.controllers', [])
               conArray[i] = "";
             }
             $scope.starsCon = conArray;
+
+            $scope.textbook['trade_text'] = (books[key]['trade'] == true ? books[key]['title']+' is up for trade, please make an offer' : books[key]['title']+' is not up for trade, cash payments only')
+
+            $scope.textbook.timestamp = books[key]['dateListed'].split(" ");
+            $scope.textbook.timestamp.day = $scope.textbook.timestamp[0].split("-");
+            $scope.textbook.timestamp.time_ = $scope.textbook.timestamp[1].split("-");
           }
         }
       }
