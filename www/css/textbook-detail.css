@@ -1,0 +1,42 @@
+.textbook-detail img{
+  width: 100%;
+}
+.textbook-detail h1{
+  /*padding: 5px;*/
+  text-align: center;
+  color: #444444;
+  line-height: 44px;
+  font-weight: 500;
+  font-size: 24px;
+}
+.textbook-detail h2{
+  color: #666666;
+  font-size: 17px;
+}
+.textbook-detail h3{
+  color: #666666;
+  font-size: 14px;
+  font-weight: bold;
+}
+.textbook-detail p{
+  font-size: 14px;
+  font-weight: bold;
+}
+.textbook-detail i.col-33{
+  width: 33.33333%;
+}
+.textbook-detail .center{
+  text-align: center;
+}
+.textbook-detail div.rating{
+  width: 50%;
+  margin: auto;
+}
+.textbook-detail div.condition{
+  width: 50%;
+  padding: 0;
+  margin: 0;
+}
+.textbook-detail div.condition i{
+  padding-left: 0;
+}
