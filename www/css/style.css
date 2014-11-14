@@ -20,3 +20,11 @@
 span.error {
     color: #BA0303;
 }
+
+.select-style {
+    padding: 5px;
+    margin: 5px;
+    width: 200px;
+    text-align: center;
+
+}
