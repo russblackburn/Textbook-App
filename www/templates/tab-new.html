@@ -27,6 +27,24 @@
 
                     </label>
                 </div>
+                <div class="control-group">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">isbn-10 # (use barcode scanner)</span>
+                        <input ng-model="textbook.isbn10" required name="isbn10" type="number" placeholder="0538470828">
+
+                        <span class="error" ng-show="showValidationMessages && myForm.isbn10.$error.required">Please insert the isbn-10 number</span>
+
+                    </label>
+                </div>
+                <div class="control-group">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">isbn-13 # (use barcode scanner)</span>
+                        <input ng-model="textbook.isbn13" required name="isbn13" type="text" placeholder="978-0538470827">
+
+                        <span class="error" ng-show="showValidationMessages && myForm.isbn13.$error.required">Please insert the isbn-10 number</span>
+
+                    </label>
+                </div>
 
                 <div class="control-group">
                     <div class="padding">

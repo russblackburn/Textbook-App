@@ -1,10 +1,25 @@
 angular.module('starter.controllers', [])
 
     //injected $cordovaBarcodeScanner service
-.controller('DashCtrl', function($scope, $http, $cordovaBarcodeScanner) {
+.controller('DashCtrl', function($scope, $http, $cordovaBarcodeScanner, Textbooks) {
   $http.get('data/book_list.json').success(function(data){
       $scope.books = data;
   });
+
+//  $scope.db = new PouchDB('http://dgm3790.iriscouch.com/textbook_db');
+//
+//  $scope.db.allDocs({include_docs: true, descending: true}, function(err, doc) {
+//      $scope.textbooks = [];
+//      for(var i=0; i < doc.rows.length; i++){
+//          $scope.textbooks.push(doc.rows[i].doc);
+//      }
+//      $scope.books = $scope.textbooks;
+//      console.log("DOC",$scope.books);
+//  });
+
+//  $scope.print = console.log("BOOKS", Textbooks.all());
+
+
 
   $scope.orderProp = 'title';
 
@@ -54,12 +69,33 @@ angular.module('starter.controllers', [])
           "description": "This book is awesome"
       }
   ];
+        var date = new Date().toLocaleString();
+        console.log("DATE: ", date);
   $scope.submit = function(tbForm){
       $scope.showValidationMessages = true;
 
       if(!tbForm.$invalid){
-          console.log("TB",tbForm);
+          var db = new PouchDB('http://dgm3790.iriscouch.com/textbook_db');
+          db.put(
+              {
+                  _id: new Date().toISOString(),
+                  "course": $scope.textbook.course,
+                  "price": $scope.textbook.price,
+                  "description":  $scope.textbook.description,
+                  "dateListed":date,
+                  "sellerID":"rjhunter20@gmail.com",
+                  "title": $scope.textbook.name,
+                  "isbn-10": $scope.textbook.isbn10,
+                  "isbn13": $scope.textbook.isbn13,
+                  "condition": $scope.textbook.condition.value,
+                  "imageURL":"img/books/business-law-text-and-cases.jpg",
+                  "trade":false,
+                  "value": $scope.textbook.price
+              }, function(err, response) {console.log("ERROR/RESP", err, response) });
       }
+
+
+
 
   };
   $scope.updateCondition = function(tb){
