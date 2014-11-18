@@ -134,7 +134,6 @@ angular.module('starter.controllers', [])
       for (var key in books) {
         if (books.hasOwnProperty(key)) {
           if ($stateParams.textbookId == books[key]['id']) {
-
             $scope.textbook = books[key];
             condition = books[key]['condition'];
             conArray.length = 5;
@@ -148,7 +147,6 @@ angular.module('starter.controllers', [])
             $scope.textbook.timestamp = books[key]['dateListed'].split(" ");
             $scope.textbook.timestamp.day = $scope.textbook.timestamp[0].split("-");
             $scope.textbook.timestamp.time_ = $scope.textbook.timestamp[1].split("-");
-
           }
         }
       }
