@@ -51,4 +51,12 @@ angular.module('starter.services', [])
 
     }
   };
+})
+
+.factory('Users', function ($http) {
+  Users = {};
+  Users.getUsers = function(){
+    return $http.get('data/user_list.json');
+  }
+  return Users;
 });

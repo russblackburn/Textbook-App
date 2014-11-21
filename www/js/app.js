@@ -71,7 +71,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
     })
 
     .state('tab.account', {
-      url: '/account',
+      url: '/account/:userId',
       views: {
         'tab-account': {
           templateUrl: 'templates/tab-account.html',

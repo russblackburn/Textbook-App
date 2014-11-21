@@ -174,5 +174,16 @@ angular.module('starter.controllers', [])
   });
 })
 
-.controller('AccountCtrl', function($scope) {
+.controller('AccountCtrl', function($scope, $stateParams, Users) {
+  var users = Users.getUsers()
+    .success(function(usr){
+      for (var key in usr) {
+          if (usr.hasOwnProperty(key)) {
+            if ($stateParams.userId == usr[key]['sellerID']) {
+              $scope.seller = usr[key];
+              break;
+            }
+          }
+        }
+      });
 });
