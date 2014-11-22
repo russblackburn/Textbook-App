@@ -34,6 +34,8 @@ Textbook-App
     Barcode Scanner
     $ cordova plugin add https://github.com/wildabeast/BarcodeScanner.git
 
+    (See SampleBarcodes.jpg for barcode samples)
+
 ##5. Troubleshoot Barcode Scanner##
 
     If the scanner does not work you will need to delete a file, directory and follow a few other steps
