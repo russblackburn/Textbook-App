@@ -1,0 +1,102 @@
+[
+
+  {
+    "id":0,
+    "title":"Head First PHP & MySQL",
+    "isbn10":"0596006306",
+    "isbn13":"978-0596006303",
+    "imageURL":"img/books/head-first-php-&-mysql.jpg",
+    "upcCode":""
+  },
+
+  {
+    "id":1,
+    "title":"Universal Principles of Design",
+    "isbn10":"1592530079",
+    "isbn13":"978-1592530076",
+    "imageURL":"img/books/universal-principles-of-design.jpg",
+    "upcCode":"9781592535873"
+  },
+
+  {
+    "id":2,
+    "title":"The Elements of User Experience",
+    "isbn10":"0735712026",
+    "isbn13":"978-0735712027",
+    "imageURL":"img/books/the-elements-of-user-experience.png",
+    "upcCode":""
+  },
+
+  {
+    "id":3,
+    "title":"Business Law: Text and Cases",
+    "isbn10":"0538470828",
+    "isbn13":"978-0538470827",
+    "imageURL":"img/books/business-law-text-and-cases.jpg",
+    "upcCode":""
+  },
+
+  {
+    "id":4,
+    "title":"JavaScript the Good Parts",
+    "isbn10":"0596517742",
+    "isbn13":"978-0596517748",
+    "imageURL":"img/books/javascript-the-good-parts.jpg",
+    "upcCode":""
+  },
+
+  {
+    "id":5,
+    "title":"Node.js In Action",
+    "isbn10":"1617290572",
+    "isbn13":"978-1617290572",
+    "imageURL":"img/books/node-js-in-action.jpg",
+    "upcCode":""
+  },
+
+  {
+    "id":6,
+    "title":"College Physics",
+    "isbn10":"1285737024",
+    "isbn13":"978-1285737027",
+    "imageURL":"img/books/college-physics.jpg",
+    "upcCode":""
+  },
+
+  {
+    "id":7,
+    "title":"Physics Laboratory Experiments",
+    "isbn10":"128573856X",
+    "isbn13":"978-1285738567",
+    "imageURL":"img/books/physics-laboratory-experiments.jpg",
+    "upcCode":""
+  },
+
+  {
+    "id":8,
+    "title":"Organic Chemistry",
+    "isbn10":"1118133579",
+    "isbn13":"978-1118133576",
+    "imageURL":"img/books/organic-chemistry.jpg",
+    "upcCode":""
+  },
+
+  {
+    "id":9,
+    "title":"Essential Cell Biology",
+    "isbn10":"0815341296",
+    "isbn13":"978-0815341291",
+    "imageURL":"img/books/organic-chemistry.jpg",
+    "upcCode":""
+  },
+
+  {
+    "id":10,
+    "title":"JavaScript Patterns",
+    "isbn10":"0596806752",
+    "isbn13":"978-0596806750",
+    "imageURL":"img/books/javascript-patterns.jpg",
+    "upcCode":""
+  }
+
+]

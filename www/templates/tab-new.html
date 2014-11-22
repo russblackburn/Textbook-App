@@ -1,13 +1,19 @@
 <ion-view title="New">
     <ion-content class="">
+
+        <!--This is the button used for the barcode scanner-->
+        <div class="padding">
+        <button class="button button-block button-stable" ng-click="fillInputs()">Scan Textbook Barcode</button>
+        </div>
+
         <form name="myForm" novalidate>
             <div class="list">
                 <div class="control-group">
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Book Title *</span>
-                        <input ng-model="textbook.name" name="name" required type="text" placeholder="Intro to College Algebra">
+                        <input id="title" value="" ng-model="textbook.name" name="name" required type="text" placeholder="Intro to College Algebra">
 
-                        <span class="error" ng-show="showValidationMessages && myForm.name.$error.required">Please insert a Textbook Name</span>
+                        <span class="error" ng-show="showValidationMessages && myForm.name.$error.required">Insert Title</span>
                     </label>
                 </div>
                 <div class="control-group">
@@ -15,37 +21,44 @@
                         <span class="input-label">Course *</span>
                         <input name="course" ng-model="textbook.course" required type="text" placeholder="DGM 3790">
 
-                        <span class="error" ng-show="showValidationMessages && myForm.course.$error.required">Please insert the name of the UVU course</span>
+                        <span class="error" ng-show="showValidationMessages && myForm.course.$error.required">Insert Course Name</span>
                     </label>
                 </div>
                 <div class="control-group">
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Asking Price (in dollars) *</span>
+                        <span class="input-label">ISBN-10</span>
+                        <input id="isbn10" value="" ng-model="textbook.isbn10" required name="isbn10" type="number" placeholder="0538470828">
+
+                        <span class="error" ng-show="showValidationMessages && myForm.isbn10.$error.required">Insert ISBN-10</span>
+
+                    </label>
+                </div>
+                <div class="control-group">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">ISBN-13</span>
+                        <input id="isbn13" value="" ng-model="textbook.isbn13" required name="isbn13" type="text" placeholder="978-0538470827">
+
+                        <span class="error" ng-show="showValidationMessages && myForm.isbn13.$error.required">Insert ISBN-13</span>
+
+                    </label>
+                </div>
+                <div class="control-group">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">UPC *</span>
+                        <input id="UPC" value="" name="UPC" ng-model="textbook.UPC" required type="text" placeholder="UPC">
+
+                        <span class="error" ng-show="showValidationMessages && myForm.course.$error.required">Insert UPC</span>
+                    </label>
+                </div>
+                <div class="control-group">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Asking Price *</span>
                         <input ng-model="textbook.price" required name="price" type="number" placeholder="40">
 
-                        <span class="error" ng-show="showValidationMessages && myForm.price.$error.required">Please insert the price in number of dollars</span>
+                        <span class="error" ng-show="showValidationMessages && myForm.price.$error.required">Insert Price</span>
 
                     </label>
                 </div>
-                <div class="control-group">
-                    <label class="item item-input item-stacked-label">
-                        <span class="input-label">isbn-10 # (use barcode scanner)</span>
-                        <input ng-model="textbook.isbn10" required name="isbn10" type="number" placeholder="0538470828">
-
-                        <span class="error" ng-show="showValidationMessages && myForm.isbn10.$error.required">Please insert the isbn-10 number</span>
-
-                    </label>
-                </div>
-                <div class="control-group">
-                    <label class="item item-input item-stacked-label">
-                        <span class="input-label">isbn-13 # (use barcode scanner)</span>
-                        <input ng-model="textbook.isbn13" required name="isbn13" type="text" placeholder="978-0538470827">
-
-                        <span class="error" ng-show="showValidationMessages && myForm.isbn13.$error.required">Please insert the isbn-10 number</span>
-
-                    </label>
-                </div>
-
                 <div class="control-group">
                     <div class="padding">
                         <span class="input-label">Condition *</span>
