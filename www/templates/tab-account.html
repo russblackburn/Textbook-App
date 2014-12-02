@@ -1,23 +1,7 @@
-<ion-view title="Account">
+<ion-view title="{{seller.userName}}">
   <ion-content class="padding">
-    <h1>Account</h1>
-
-      <div>
-        <label for="name">Name: {{user.userName}}</label>
-        <input type="text" id="name" />
-      </div>
-      <div>
-        <label for="mail">E-mail:</label>
-        <input type="email" id="mail" />
-      </div>
-      <div>
-        <label for="tel">Phone Number:</label>
-        <input id="phone" type="tel" />
-      </div>
-      <div>
-        <label for="msg">Message:</label>
-        <textarea id="msg"></textarea>
-      </div>
-
+    <h1>{{seller.fullName}}</h1>
+    <p>{{seller.email}}</p>
+    <p>{{seller.phone}}</p>
   </ion-content>
 </ion-view>

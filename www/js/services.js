@@ -4,38 +4,59 @@ angular.module('starter.services', [])
  * A simple example service that returns some data.
  */
 .factory('Textbooks', function($http) {
-  // Might use a resource here that returns a JSON array
+  //var db = new PouchDB('http://dgm3790.iriscouch.com/textbook_db');
   var textbooks = [];
-
-  var getTextbooks = function(){
-      $http.get('data/book_list.json').success(function(data){
-          textbooks = data;
-          // console.log(data);
-      });
-  };
-
-  var setTextbooks = function(){
-
-  };
-
-  // Some fake testing data
-
-  // console.log(textbooks[3]);
   return {
     all: function() {
-      getTextbooks();
-      return textbooks;
+
+//        return {
+//            return:$http.get('http://dgm3790.iriscouch.com/test_assignment_db/_design/apiv1/_view/jobs'
+//                .then(function(result){
+//                    return result.data.rows;
+//                }))
+//        }
+
+
+
+//        db.allDocs({include_docs: true, descending: true}, function(err, doc) {
+//            textbooks = [];
+//            if(err){
+//                return err;
+//            } else if(doc){
+//                for(var i=0; i < doc.rows.length; i++){
+//                    textbooks.push(doc.rows[i].doc);
+//                }
+//                console.log("TB: ", textbooks);
+//                return textbooks;
+//            } else {
+//                return "pooh";
+//            }
+//        });
     },
     get: function(textbookId) {
-      // Simple index lookup
-      getTextbooks();
-      return textbooks[textbookId];
+//      db.get(textbookId, function(textbook){
+//          return textbook;
+//      });
     },
     set: function(textbook){
-      getTextbooks();
-      textbooks.push(textbook);
-      setTextbooks();
-      return textbooks;
+//      db.put(textbook, function(err, response) {
+//          if(err){
+//              return err;
+//          } else if(response){
+//              return err;
+//          } else {
+//              return "";
+//          }
+//      });
+
     }
   };
+})
+
+.factory('Users', function ($http) {
+  Users = {};
+  Users.getUsers = function(){
+    return $http.get('data/user_list.json');
+  }
+  return Users;
 });

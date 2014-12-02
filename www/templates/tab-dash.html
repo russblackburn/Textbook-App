@@ -5,27 +5,25 @@
         <div class="list list-inset">
             <label class="item item-input">
                 <i class="icon ion-search placeholder-icon"></i>
-                <input type="text" ng-model="query" placeholder="Search by: Book or ISBN">
+                <!--added id and value attributes so that the barcode scanner controller can access the input field-->
+                <input id="textbookInput" value="" type="text" ng-model="query" placeholder="Search by: Book or ISBN">
             </label>
-            </div>
-        <div class="select-style">
-        <label> Sort by: </label>
+
+            <label> Sort by: </label>
                 <select ng-model="orderProp">
                     <option value="title">Title</option>
                     <option value="value">Price</option>
-                    <option value="-dateListed">Newest</option>
+                    <option value="dateListed">Newest</option>
                     <option value="condition">Condition</option>
                 </select>
         </div>
-        <!--<div class="button-bar">-->
-            <!--<a class="button" value="title" ng-model="orderProp">Title</a>-->
-            <!--<a class="button" value="value" ng-model="orderProp">Price</a>-->
-            <!--<a class="button" value="dateListed" ng-model="orderProp">Newest</a>-->
-            <!--<a class="button" value="condition" ng-model="orderProp">Condition</a>-->
-        <!--</div>-->
+
+        <!--This is the button used for the barcode scanner-->
+        <button class="button" ng-click="scanBarcode()">Scan Textbook Barcode</button>
 
         <ion-list class="list">
-            <ion-item class="item item-icon-right" ng-repeat="book in books | filter:query | orderBy:orderProp" href="#/tab/textbook/{{book.id}}">
+            <ion-item class="item item-icon-right item-avatar" ng-repeat="book in books | filter:query | orderBy:orderProp" href="#/tab/textbook/{{book.id}}">
+                <img ng-src="{{book.imageURL}}">
                 <i class="icon ion-ios7-arrow-right"></i>
                 <span>{{book.title}}</span>
                 <p>${{book.value}}</p>

@@ -20,3 +20,20 @@
 span.error {
     color: #BA0303;
 }
+
+img{
+  width: 100%;
+}
+div.textbook-thumbnail{
+  width: 50%;
+  float: left;
+}
+
+.select-style {
+    padding: 5px;
+    margin: 5px;
+    width: 200px;
+    text-align: center;
+
+}
+
