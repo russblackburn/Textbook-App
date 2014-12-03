@@ -4,6 +4,7 @@
         <!--This is the button used for the barcode scanner-->
         <div class="padding">
         <button class="button button-block button-stable" ng-click="fillInputs()">Scan Textbook Barcode</button>
+        <button class="button button-block button-stable" ng-click="fillWithFake()">Fill with Test Data</button>
         </div>
 
         <form name="myForm" novalidate>
@@ -27,7 +28,7 @@
                 <div class="control-group">
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">ISBN-10</span>
-                        <input id="isbn10" value="" ng-model="textbook.isbn10" required name="isbn10" type="number" placeholder="0538470828">
+                        <input id="isbn10" value="" ng-model="textbook.isbn10" required name="isbn10" type="text" placeholder="0538470828">
 
                         <span class="error" ng-show="showValidationMessages && myForm.isbn10.$error.required">Insert ISBN-10</span>
 

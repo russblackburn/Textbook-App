@@ -43,16 +43,39 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('NewCtrl', function($scope, Textbooks, $http, $cordovaBarcodeScanner) {
-  $scope.textbooks = Textbooks.all();
-  $scope.showValidationMessages = false;
-  $scope.textbook = {
-          "condition":{
-              'value': 4,
-              'description': "This book is in great condition"
-          }
+.controller('NewCtrl', function($scope, Textbooks, TextBookAds, $http, $cordovaBarcodeScanner) {
+    $scope.getTextbooks = function(textbooks){
+        var promise = Textbooks.all();
+        promise.then(
+            function(data){
+                console.log("Success-DATA", data.data.rows);
+                $scope.textbooks = data.data.rows;
+            },
+            function(err){
+                console.log("FAIL", err);
+            }
+        )
+    };
+    $scope.getTextbooks();
+
+    // Replace this with actual user when we get that figured out
+    $scope.user = {
+        '_id': "rjhunter20@gmail.com",
+        'name':"Ryan Hunter",
+        'email': "rjhunter20@gmail.com"
+    }
+
+
+
+        console.log("TEXTBOOKS", $scope.textbooks);
+    $scope.showValidationMessages = false;
+    $scope.textbook = {
+      "condition":{
+          'value': 4,
+          'description': "This book is in great condition"
       }
-  $scope.conditions = [
+    };
+    $scope.conditions = [
       {
           "description": "This book sucks"
       },
@@ -68,40 +91,58 @@ angular.module('starter.controllers', [])
       {
           "description": "This book is awesome"
       }
-  ];
-        var date = new Date().toLocaleString();
-        console.log("DATE: ", date);
-  $scope.submit = function(tbForm){
-      $scope.showValidationMessages = true;
+    ];
+    var date = new Date().toLocaleString();
+    console.log("DATE: ", date);
+    $scope.submit = function(tbForm){
+        $scope.showValidationMessages = true;
 
-      if(!tbForm.$invalid){
-          var db = new PouchDB('http://dgm3790.iriscouch.com/textbook_db');
-          db.put(
-              {
-                  _id: new Date().toISOString(),
-                  "course": $scope.textbook.course,
-                  "price": $scope.textbook.price,
-                  "description":  $scope.textbook.description,
-                  "dateListed":date,
-                  "sellerID":"rjhunter20@gmail.com",
-                  "title": $scope.textbook.name,
-                  "isbn-10": $scope.textbook.isbn10,
-                  "isbn13": $scope.textbook.isbn13,
-                  "condition": $scope.textbook.condition.value,
-                  "imageURL":"img/books/business-law-text-and-cases.jpg",
-                  "trade":false,
-                  "value": $scope.textbook.price
-              }, function(err, response) {console.log("ERROR/RESP", err, response) });
-      }
+        if(!tbForm.$invalid){
+            var getTextbook = function(textbookID){
+                var promise = Textbooks.get(textbookID);
+                promise.then(
+                    function(data){
+                        console.log("YEAH", data);
+                        // There is a book that exists: now create a new Ad
+                        TextBookAds.add($scope.textbook, $scope.user);
+                    },
+                    function(err){
+                        console.log("BUMMER", err);
+                        // There is not a book, create a new Book and a new Ad
+                        Textbooks.add($scope.textbook);
+                        TextBookAds.add($scope.textbook, $scope.user);
+                    }
+                )
+            };
+            getTextbook($scope.textbook.isbn10);
 
+          // If the isbn-10 does not exist then create a new ad as well as a new textbook
 
+        }
+    };
+    $scope.clearValues = function(){
+        $scope.textbook.course = "";
+        $scope.textbook.price = null;
+        $scope.textbook.description = "";
+        $scope.textbook.name = "";
+        $scope.textbook.isbn10 = "";
+        $scope.textbook.isbn13 = "";
+        $scope.textbook.UPC = "";
+    };
+    $scope.fillWithFake = function(){
+        $scope.textbook.course = "DGM 3740";
+        $scope.textbook.price = 45;
+        $scope.textbook.description = "This is one great book";
+        $scope.textbook.name = "Introduction to Node.js";
+        $scope.textbook.isbn10 = "1617290572";
+        $scope.textbook.isbn13 = "978-1617290572";
+        $scope.textbook.UPC = "9781617290572";
+    };
 
-
-  };
-  $scope.updateCondition = function(tb){
+    $scope.updateCondition = function(tb){
       tb.condition.description = $scope.conditions[tb.condition.value -1].description;
       console.log("TB", tb);
-  };
+    };
 
     //adding barcode scanner for automatic input fields
     $http.get('data/book_scanner_database.json').success(function(data){
