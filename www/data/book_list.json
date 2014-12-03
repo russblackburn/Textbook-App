@@ -9,7 +9,7 @@
 		"condition":3,
 		"imageURL":"img/books/head-first-php-&-mysql.jpg",
 		"trade":true,
-		"value":"25.00",
+		"value":"25",
 		"dateListed":"2014-09-28 12:34:00",
 		"sellerID":1
 	},
@@ -23,7 +23,7 @@
 		"condition":2,
 		"imageURL":"img/books/universal-principles-of-design.jpg",
 		"trade":false,
-		"value":"17.99",
+		"value":"17",
 		"dateListed":"2014-10-00 07:01:00",
     "sellerID":2
 	},
@@ -37,7 +37,7 @@
 		"condition":3,
 		"imageURL":"img/books/the-elements-of-user-experience.png",
 		"trade":true,
-		"value":"8.00",
+		"value":"8",
 		"dateListed":"2014-07-14 18:51:20",
     "sellerID":3
 	},
@@ -51,7 +51,7 @@
 		"condition":5,
 		"imageURL":"img/books/business-law-text-and-cases.jpg",
 		"trade":false,
-		"value":"279.99",
+		"value":"279",
 		"dateListed":"2014-07-19 14:39:51",
     "sellerID":4
 	},
@@ -65,7 +65,7 @@
 		"condition":2,
 		"imageURL":"img/books/javascript-the-good-parts.jpg",
 		"trade":true,
-		"value":"10.99",
+		"value":"10",
 		"dateListed":"2014-03-20 22:21:45",
     "sellerID":5
 	},
@@ -79,7 +79,7 @@
 		"condition":5,
 		"imageURL":"img/books/node-js-in-action.jpg",
 		"trade":true,
-		"value":"29.99",
+		"value":"29",
 		"dateListed":"2014-05-20 14:21:45",
     "sellerID":6
 	},
@@ -93,7 +93,7 @@
 		"condition":4,
 		"imageURL":"img/books/college-physics.jpg",
 		"trade":true,
-		"value":"294.99",
+		"value":"294",
 		"dateListed":"2014-08-10 19:51:45",
     "sellerID":7
 	},
@@ -107,7 +107,7 @@
 		"condition":5,
 		"imageURL":"img/books/physics-laboratory-experiments.jpg",
 		"trade":false,
-		"value":"164.99",
+		"value":"164",
 		"dateListed":"2014-09-19 09:30:54",
     "sellerID":8
 	},
@@ -121,7 +121,7 @@
 		"condition":2,
 		"imageURL":"img/books/organic-chemistry.jpg",
 		"trade":true,
-		"value":"145.00",
+		"value":"145",
 		"dateListed":"2014-09-26 11:02:09",
     "sellerID":9
 	},
@@ -135,7 +135,7 @@
 		"condition":5,
 		"imageURL":"img/books/essential-cell-biology.jpg",
 		"trade":true,
-		"value":"129.99",
+		"value":"129",
 		"dateListed":"2014-10-05 11:58:39",
     "sellerID":10
 	},
@@ -149,7 +149,7 @@
 		"condition":4,
 		"imageURL":"img/books/javascript-patterns.jpg",
 		"trade":true,
-		"value":"14.99",
+		"value":"14",
 		"dateListed":"2014-10-10 23:50:19",
     "sellerID":11
 	}

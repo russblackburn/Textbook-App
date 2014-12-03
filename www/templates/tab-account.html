@@ -1,7 +1,12 @@
 <ion-view title="{{seller.userName}}">
   <ion-content class="padding">
     <h1>{{seller.fullName}}</h1>
+    <div class="seller-image">
+    <img src="{{seller.imageURL}}"/>
+    </div>
     <p>{{seller.email}}</p>
     <p>{{seller.phone}}</p>
+    <p>Average Rating: {{seller.rating}}</p>
+
   </ion-content>
 </ion-view>
