@@ -36,4 +36,8 @@ div.textbook-thumbnail{
     text-align: center;
 
 }
-
+div.seller-image {
+    width: 25%;
+    float: left;
+    padding: 5px;
+}
