@@ -152,6 +152,314 @@
 		"value":"14",
 		"dateListed":"2014-10-10 23:50:19",
     "sellerID":11
+	},
+
+	{
+	  "id":12,
+	  "title":"Head First PHP & MySQL",
+	  "isbn-10":"0596006306",
+	  "isbn13":"978-0596006303",
+	  "upc":"9780596006303",
+	  "condition":3,
+	  "imageURL":"img/books/head-first-php-&-mysql.jpg",
+	  "trade":true,
+	  "value":"22",
+	  "dateListed":"2014-09-25 12:34:00",
+	  "sellerID":11
+	},
+
+	{
+	  "id":13,
+	  "title":"Universal Principles of Design",
+	  "isbn-10":"1592535879",
+	  "isbn13":"978-1592535873",
+	  "upc":"9781592535873",
+	  "condition":2,
+	  "imageURL":"img/books/universal-principles-of-design.jpg",
+	  "trade":false,
+	  "value":"20",
+	  "dateListed":"2014-03-01 07:01:00",
+	  "sellerID":10
+	},
+
+	{
+	  "id":14,
+	  "title":"The Elements of User Experience",
+	  "isbn-10":"0735712026",
+	  "isbn13":"978-0735712027",
+	  "upc":"97803216836878",
+	  "condition":3,
+	  "imageURL":"img/books/the-elements-of-user-experience.png",
+	  "trade":true,
+	  "value":"12",
+	  "dateListed":"2014-04-17 18:51:20",
+	  "sellerID":9
+	},
+
+	{
+	  "id":15,
+	  "title":"Business Law: Text and Cases",
+	  "isbn-10":"0538470828",
+	  "isbn13":"978-0538470827",
+	  "upc":"97812851852488",
+	  "condition":5,
+	  "imageURL":"img/books/business-law-text-and-cases.jpg",
+	  "trade":false,
+	  "value":"276",
+	  "dateListed":"2014-05-20 14:39:51",
+	  "sellerID":8
+	},
+
+	{
+	  "id":16,
+	  "title":"JavaScript the Good Parts",
+	  "isbn-10":"0596517742",
+	  "isbn13":"978-0596517748",
+	  "upc":"97805965177486",
+	  "condition":2,
+	  "imageURL":"img/books/javascript-the-good-parts.jpg",
+	  "trade":true,
+	  "value":"9",
+	  "dateListed":"2014-06-15 22:21:45",
+	  "sellerID":7
+	},
+
+	{
+	  "id":17,
+	  "title":"Node.js In Action",
+	  "isbn-10":"1617290572",
+	  "isbn13":"978-1617290572",
+	  "upc":"9781617290572",
+	  "condition":5,
+	  "imageURL":"img/books/node-js-in-action.jpg",
+	  "trade":true,
+	  "value":"27",
+	  "dateListed":"2014-07-11 14:21:45",
+	  "sellerID":4
+	},
+
+	{
+	  "id":18,
+	  "title":"College Physics",
+	  "isbn-10":"1285737024",
+	  "isbn13":"978-1285737027",
+	  "upc":"9781285737027",
+	  "condition":4,
+	  "imageURL":"img/books/college-physics.jpg",
+	  "trade":true,
+	  "value":"280",
+	  "dateListed":"2014-08-09 19:51:45",
+	  "sellerID":5
+	},
+
+	{
+	  "id":19,
+	  "title":"Physics Laboratory Experiments",
+	  "isbn-10":"128573856X",
+	  "isbn13":"978-1285738567",
+	  "upc":"9781285738567",
+	  "condition":5,
+	  "imageURL":"img/books/physics-laboratory-experiments.jpg",
+	  "trade":false,
+	  "value":"150",
+	  "dateListed":"2014-09-17 09:30:54",
+	  "sellerID":4
+	},
+
+	{
+	  "id":20,
+	  "title":"Organic Chemistry",
+	  "isbn-10":"1118133579",
+	  "isbn13":"978-1118133576",
+	  "upc":"9781118133576",
+	  "condition":2,
+	  "imageURL":"img/books/organic-chemistry.jpg",
+	  "trade":true,
+	  "value":"130",
+	  "dateListed":"2014-10-25 11:02:09",
+	  "sellerID":3
+	},
+
+	{
+	  "id":21,
+	  "title":"Essential Cell Biology",
+	  "isbn-10":"0815341296",
+	  "isbn13":"978-0815341291",
+	  "upc":"9780815341291",
+	  "condition":5,
+	  "imageURL":"img/books/essential-cell-biology.jpg",
+	  "trade":true,
+	  "value":"140",
+	  "dateListed":"2014-11-13 11:58:39",
+	  "sellerID":2
+	},
+
+	{
+	  "id":22,
+	  "title":"JavaScript Patterns",
+	  "isbn-10":"0596806752",
+	  "isbn13":"978-0596806750",
+	  "upc":"97805968067500",
+	  "condition":4,
+	  "imageURL":"img/books/javascript-patterns.jpg",
+	  "trade":true,
+	  "value":"12",
+	  "dateListed":"2014-12-09 23:50:19",
+	  "sellerID":1
+	},
+
+	{
+	  "id":23,
+	  "title":"Head First PHP & MySQL",
+	  "isbn-10":"0596006306",
+	  "isbn13":"978-0596006303",
+	  "upc":"9780596006303",
+	  "condition":3,
+	  "imageURL":"img/books/head-first-php-&-mysql.jpg",
+	  "trade":true,
+	  "value":"21",
+	  "dateListed":"2014-07-28 12:34:00",
+	  "sellerID":9
+	},
+
+	{
+	  "id":24,
+	  "title":"Universal Principles of Design",
+	  "isbn-10":"1592535879",
+	  "isbn13":"978-1592535873",
+	  "upc":"9781592535873",
+	  "condition":2,
+	  "imageURL":"img/books/universal-principles-of-design.jpg",
+	  "trade":false,
+	  "value":"13",
+	  "dateListed":"2014-03-01 07:01:00",
+	  "sellerID":10
+	},
+
+	{
+	  "id":25,
+	  "title":"The Elements of User Experience",
+	  "isbn-10":"0735712026",
+	  "isbn13":"978-0735712027",
+	  "upc":"97803216836878",
+	  "condition":3,
+	  "imageURL":"img/books/the-elements-of-user-experience.png",
+	  "trade":true,
+	  "value":"14",
+	  "dateListed":"2014-01-14 18:51:20",
+	  "sellerID":1
+	},
+
+	{
+	  "id":26,
+	  "title":"Business Law: Text and Cases",
+	  "isbn-10":"0538470828",
+	  "isbn13":"978-0538470827",
+	  "upc":"97812851852488",
+	  "condition":5,
+	  "imageURL":"img/books/business-law-text-and-cases.jpg",
+	  "trade":false,
+	  "value":"250",
+	  "dateListed":"2014-10-19 14:39:51",
+	  "sellerID":2
+	},
+
+	{
+	  "id":27,
+	  "title":"JavaScript the Good Parts",
+	  "isbn-10":"0596517742",
+	  "isbn13":"978-0596517748",
+	  "upc":"97805965177486",
+	  "condition":2,
+	  "imageURL":"img/books/javascript-the-good-parts.jpg",
+	  "trade":true,
+	  "value":"18",
+	  "dateListed":"2014-11-20 22:21:45",
+	  "sellerID":3
+	},
+
+	{
+	  "id":28,
+	  "title":"Node.js In Action",
+	  "isbn-10":"1617290572",
+	  "isbn13":"978-1617290572",
+	  "upc":"9781617290572",
+	  "condition":5,
+	  "imageURL":"img/books/node-js-in-action.jpg",
+	  "trade":true,
+	  "value":"25",
+	  "dateListed":"2014-12-20 14:21:45",
+	  "sellerID":4
+	},
+
+	{
+	  "id":29,
+	  "title":"College Physics",
+	  "isbn-10":"1285737024",
+	  "isbn13":"978-1285737027",
+	  "upc":"9781285737027",
+	  "condition":4,
+	  "imageURL":"img/books/college-physics.jpg",
+	  "trade":true,
+	  "value":"270",
+	  "dateListed":"2014-05-10 19:51:45",
+	  "sellerID":5
+	},
+
+	{
+	  "id":30,
+	  "title":"Physics Laboratory Experiments",
+	  "isbn-10":"128573856X",
+	  "isbn13":"978-1285738567",
+	  "upc":"9781285738567",
+	  "condition":5,
+	  "imageURL":"img/books/physics-laboratory-experiments.jpg",
+	  "trade":false,
+	  "value":"145",
+	  "dateListed":"2014-01-19 09:30:54",
+	  "sellerID":6
+	},
+
+	{
+	  "id":31,
+	  "title":"Organic Chemistry",
+	  "isbn-10":"1118133579",
+	  "isbn13":"978-1118133576",
+	  "upc":"9781118133576",
+	  "condition":2,
+	  "imageURL":"img/books/organic-chemistry.jpg",
+	  "trade":true,
+	  "value":"120",
+	  "dateListed":"2014-06-26 11:02:09",
+	  "sellerID":7
+	},
+
+	{
+	  "id":32,
+	  "title":"Essential Cell Biology",
+	  "isbn-10":"0815341296",
+	  "isbn13":"978-0815341291",
+	  "upc":"9780815341291",
+	  "condition":5,
+	  "imageURL":"img/books/essential-cell-biology.jpg",
+	  "trade":true,
+	  "value":"115",
+	  "dateListed":"2014-01-05 11:58:39",
+	  "sellerID":8
+	},
+
+	{
+	  "id":33,
+	  "title":"JavaScript Patterns",
+	  "isbn-10":"0596806752",
+	  "isbn13":"978-0596806750",
+	  "upc":"97805968067500",
+	  "condition":4,
+	  "imageURL":"img/books/javascript-patterns.jpg",
+	  "trade":true,
+	  "value":"12",
+	  "dateListed":"2014-02-10 23:50:19",
+	  "sellerID":9
 	}
 
 ]
