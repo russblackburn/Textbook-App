@@ -21,7 +21,7 @@ angular.module('starter.services', [])
                     return doc;
                 }
 //
-//                // If the isbn-10 does not exist then create a new ad as well as a new textbook
+//                // If the isbn10 does not exist then create a new ad as well as a new textbook
 //                if(err){
 //                    console.log("NO TEXTBOOK", err);
 //                    textbook_db.put(
@@ -33,7 +33,7 @@ angular.module('starter.services', [])
 //                            "dateListed":date,
 //                            "sellerID":"rjhunter20@gmail.com",
 //                            "title": $scope.textbook.name,
-//                            "isbn-10": $scope.textbook.isbn10,
+//                            "isbn10": $scope.textbook.isbn10,
 //                            "isbn13": $scope.textbook.isbn13,
 //                            "condition": $scope.textbook.condition.value,
 //                            "imageURL":"img/books/business-law-text-and-cases.jpg",
@@ -48,7 +48,7 @@ angular.module('starter.services', [])
 //
 //                        });
 //
-//                // If isbn-10 exists then use the textbooks id and create a new ad
+//                // If isbn10 exists then use the textbooks id and create a new ad
 //                }else if(doc){
 //                    console.log("TEXTBOOK-SUCCESS", doc);
 //                }
@@ -62,22 +62,42 @@ angular.module('starter.services', [])
       },
       add: function (textbook) {
           var textbook_db = new PouchDB('http://dgm3790.iriscouch.com/textbook_db');
+
           textbook_db.put(
               {
-                  _id: textbook.isbn10,
+                  _id: new Date().toISOString(),
                   "course": textbook.course,
-                  "title": textbook.name,
-                  "isbn-10": textbook.isbn10,
-                  "isbn13": textbook.isbn13,
-                  "imageURL":"img/books/business-law-text-and-cases.jpg"
+                  "title": textbook.title,
+                  "isbn10": textbook.isbn10,
+                  "isbn13": textbook.isbn13
               }, function(err, response) {
                   if(err){
-                      console.log("AD NOT SAVED", err);
+                      console.log("TEXTBOOK NOT SAVED", err);
                   } else if(response){
-                      console.log("AD SAVED", response);
+                      console.log("TEXTBOOK SAVED", response);
                   }
 
               });
+          // send the image to the database as a blob
+//         var convertImgToBlob = function(img, callback) {
+//              var canvas = document.createElement('canvas');
+//              var context = canvas.getContext('2d');
+//              context.drawImage(img, 0, 0);
+//              console.log("First Thisfar");
+//              // Warning: toBlob() isn't supported by every browser.
+//              // You may want to use blob-util.
+//              canvas.toBlob(callback, 'image/jpg');
+//          };
+//
+//          convertImgToBlob(textbook.image, function (blob) {
+//              console.log("THISFAR");
+//
+//              textbook_db.putAttachment(textbook.upc, textbook.upc + ".jpg", blob, 'image/jpg').then(function () {
+//                  return textbook_db.get(textbook.upc, {attachments: true});
+//              }).then(function (doc) {
+//                  console.log("ATTACHMENTS", doc);
+//              });
+//          });
 
 ////
 //          return promise.then(function(result) {
@@ -95,7 +115,7 @@ angular.module('starter.services', [])
 //                  "dateListed":date,
 //                  "sellerID":"rjhunter20@gmail.com",
 //                  "title": $scope.textbook.name,
-//                  "isbn-10": $scope.textbook.isbn10,
+//                  "isbn10": $scope.textbook.isbn10,
 //                  "isbn13": $scope.textbook.isbn13,
 //                  "condition": $scope.textbook.condition.value,
 //                  "imageURL":"img/books/business-law-text-and-cases.jpg",
@@ -118,17 +138,16 @@ angular.module('starter.services', [])
                     _id: new Date().toISOString(),
                     "sellerID": user._id,
                     "textBookID": textbook._id,
-                    "price": textbook.price,
                     "description": textbook.description,
                     "dateListed": date,
                     "condition": textbook.condition.value,
                     "trade": false,
-                    "value": textbook.price
+                    "value": textbook.value
                 }, function (err, response) {
                     if (err) {
-                        console.log("ERROR", err);
+                        console.log("TextbookAd Not Saved", err);
                     } else if (response) {
-                        console.log("SUCESSSS", response);
+                        console.log("TextbookAd Saved", response);
                     }
 
                 });

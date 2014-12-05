@@ -57,23 +57,33 @@ angular.module('starter.controllers', [])
         )
     };
     $scope.getTextbooks();
+    $scope.bookTest = function(){
+        console.log("BOOK", $scope.textbook);
+    }
 
     // Replace this with actual user when we get that figured out
     $scope.user = {
         '_id': "rjhunter20@gmail.com",
         'name':"Ryan Hunter",
         'email': "rjhunter20@gmail.com"
-    }
+    };
 
 
 
         console.log("TEXTBOOKS", $scope.textbooks);
     $scope.showValidationMessages = false;
+
+    // Fill with default information (important to set unrequired fields to ""
     $scope.textbook = {
       "condition":{
           'value': 4,
           'description': "This book is in great condition"
-      }
+      },
+      "isbn10": "",
+      "isbn13" :"",
+      "course" : "",
+      "trade" : false,
+      "image": "img/books/business-law-text-and-cases.jpg"
     };
     $scope.conditions = [
       {
@@ -93,50 +103,72 @@ angular.module('starter.controllers', [])
       }
     ];
     var date = new Date().toLocaleString();
-    console.log("DATE: ", date);
+
+    $scope.convertImgToBlob = function(img, callback){
+        var canvas = new Image(img);
+
+        // Warning: toBlob() isn't supported by every browser.
+        // You may want to use blob-util.
+        canvas.toBlob(callback, 'image/jpg');
+    }
+
+    $scope.showBlob = function(blob){
+        console.log("BLOB!!!!", blob);
+    };
+
     $scope.submit = function(tbForm){
         $scope.showValidationMessages = true;
 
         if(!tbForm.$invalid){
+            $scope.convertImgToBlob($scope.textbook.image, $scope.showBlob());
             var getTextbook = function(textbookID){
                 var promise = Textbooks.get(textbookID);
                 promise.then(
                     function(data){
-                        console.log("YEAH", data);
+                        console.log("Textbook Exists", data);
                         // There is a book that exists: now create a new Ad
                         TextBookAds.add($scope.textbook, $scope.user);
                     },
                     function(err){
-                        console.log("BUMMER", err);
+                        console.log("Textbook Does Not Exist - Create one", err);
                         // There is not a book, create a new Book and a new Ad
                         Textbooks.add($scope.textbook);
                         TextBookAds.add($scope.textbook, $scope.user);
                     }
                 )
             };
-            getTextbook($scope.textbook.isbn10);
+            getTextbook($scope.textbook.upc);
 
-          // If the isbn-10 does not exist then create a new ad as well as a new textbook
+          // If the isbn10 does not exist then create a new ad as well as a new textbook
 
         }
     };
     $scope.clearValues = function(){
         $scope.textbook.course = "";
-        $scope.textbook.price = null;
+        $scope.textbook.value = null;
         $scope.textbook.description = "";
-        $scope.textbook.name = "";
+        $scope.textbook.title = "";
         $scope.textbook.isbn10 = "";
         $scope.textbook.isbn13 = "";
-        $scope.textbook.UPC = "";
+        $scope.textbook.upc = "";
     };
     $scope.fillWithFake = function(){
         $scope.textbook.course = "DGM 3740";
-        $scope.textbook.price = 45;
+        $scope.textbook.value = 45;
         $scope.textbook.description = "This is one great book";
-        $scope.textbook.name = "Introduction to Node.js";
+        $scope.textbook.title = "Introduction to Node.js";
         $scope.textbook.isbn10 = "1617290572";
         $scope.textbook.isbn13 = "978-1617290572";
-        $scope.textbook.UPC = "9781617290572";
+        $scope.textbook.upc = "9781617290572";
+    };
+    $scope.updateTextbook = function(data){
+        $scope.textbook.course = data.course;
+        $scope.textbook.value = data.value;
+        $scope.textbook.description = data.description;
+        $scope.textbook.title = data.title;
+        $scope.textbook.isbn10 = data.isbn10;
+        $scope.textbook.isbn13 = data.isbn13;
+        $scope.textbook.upc = data._id;
     };
 
     $scope.updateCondition = function(tb){
@@ -144,38 +176,61 @@ angular.module('starter.controllers', [])
       console.log("TB", tb);
     };
 
+    $scope.fillInputs = function(testUPC){
+        var scanResults = testUPC;
+
+        var getTextbook = function(textbookID){
+            var promise = Textbooks.get(textbookID);
+            promise.then(
+                function(data){
+                    console.log("Textbook Exists", data);
+                    // There is a book that exists: now fill all the text-fields
+                    $scope.updateTextbook(data);
+                    $scope.$apply();
+                },
+                function(err){
+                    console.log("Textbook Does Not Exist - Send Message & prefill", err);
+                    // There is not a book, create a new Book and a new Ad
+
+                }
+            )
+        };
+        getTextbook(scanResults);
+
+    };
+
     //adding barcode scanner for automatic input fields
-    $http.get('data/book_scanner_database.json').success(function(data){
-        var bookDatabase = data;
-
-        //adding barcode scanner to automatically fill input fields with textbook data
-        $scope.fillInputs = function() {
-            $cordovaBarcodeScanner.scan().then(function(imageData) {
-
-                var scanResults = imageData.text;
-
-
-                for (var key in bookDatabase) {
-                    if (bookDatabase.hasOwnProperty(key)) {
-                        if (scanResults == bookDatabase[key]['upcCode']) {
-                            document.getElementById('title').value = bookDatabase[key]['title'];
-                            document.getElementById('isbn10').value = bookDatabase[key]['isbn10'];
-                            document.getElementById('isbn13').value = bookDatabase[key]['isbn13'];
-                            document.getElementById('UPC').value = bookDatabase[key]['upcCode'];
-                        }
-                    }
-                }
-
-                if (imageData.cancelled == 1) {
-                    alert("Cancelled Barcode Scan");
-                } else {
-                    console.log("Scan Not Cancelled ->" + imageData.cancelled);
-                }
-            }, function(error) {
-                console.log("An error happened -> " + error);
-            });
-        };//end of barcode scanner
-    });//end scanner book database http
+//    $http.get('data/book_scanner_database.json').success(function(data){
+//        var bookDatabase = data;
+//
+//        //adding barcode scanner to automatically fill input fields with textbook data
+//        $scope.fillInputs = function() {
+//            $cordovaBarcodeScanner.scan().then(function(imageData) {
+//
+//                var scanResults = imageData.text;
+//
+//
+//                for (var key in bookDatabase) {
+//                    if (bookDatabase.hasOwnProperty(key)) {
+//                        if (scanResults == bookDatabase[key]['upcCode']) {
+//                            document.getElementById('title').value = bookDatabase[key]['title'];
+//                            document.getElementById('isbn10').value = bookDatabase[key]['isbn10'];
+//                            document.getElementById('isbn13').value = bookDatabase[key]['isbn13'];
+//                            document.getElementById('UPC').value = bookDatabase[key]['upcCode'];
+//                        }
+//                    }
+//                }
+//
+//                if (imageData.cancelled == 1) {
+//                    alert("Cancelled Barcode Scan");
+//                } else {
+//                    console.log("Scan Not Cancelled ->" + imageData.cancelled);
+//                }
+//            }, function(error) {
+//                console.log("An error happened -> " + error);
+//            });
+//        };//end of barcode scanner
+//    });//end scanner book database http
 })
 
 .controller('TextbookDetailCtrl', function($http, $scope, $stateParams, Textbooks) {
