@@ -43,7 +43,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('NewCtrl', function($scope, Textbooks, TextBookAds, $http, $cordovaBarcodeScanner) {
+.controller('NewCtrl', function($scope, Textbooks, TextBookAds, $http, $cordovaBarcodeScanner, $cordovaCamera) {
     $scope.getTextbooks = function(textbooks){
         var promise = Textbooks.all();
         promise.then(
@@ -176,6 +176,29 @@ angular.module('starter.controllers', [])
             });
         };//end of barcode scanner
     });//end scanner book database http
+
+        //start of the camera to take a picture of the textbook
+        $scope.takePicture = function() {
+            var options = {
+                quality: 100,
+                destinationType: Camera.DestinationType.DATA_URL,
+                sourceType: Camera.PictureSourceType.CAMERA,
+                allowEdit: true,
+                encodingType: Camera.EncodingType.JPEG,
+                targetWidth: 400,
+                targetHeight: 400,
+                popoverOptions: CameraPopoverOptions,
+                saveToPhotoAlbum: false
+            };
+
+            $cordovaCamera.getPicture(options).then(function (imageData) {
+                //Here is the image data
+                $scope.imageURI = "data:image/jpeg;base64," + imageData;
+            }, function (err) {
+                // An error occurred. Show a message to the user
+            });
+        }
+
 })
 
 .controller('TextbookDetailCtrl', function($http, $scope, $stateParams, Textbooks) {

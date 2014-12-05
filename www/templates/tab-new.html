@@ -79,6 +79,14 @@
                         <textarea name="description" ng-model="textbook.description" placeholder="Comments"></textarea>
                     </label>
                 </div>
+                <!--button to take a picture of a textbook cover-->
+                <div class="padding">
+                    <button class="button button-block button-stable" ng-click="takePicture()">Take Picture</button>
+                </div>
+                <!--display the picture taken underneath the Take Picture button-->
+                <div class="padding">
+                    <img ng-src="{{imageURI}}">
+                </div>
                 <div class="padding">
                     <button class="button button-block button-positive" ng-click="submit(myForm)">Submit</button>
                 </div>
