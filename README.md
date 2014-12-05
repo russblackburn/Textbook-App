@@ -27,7 +27,7 @@ Textbook-App
     $ ionic build ios
     $ ionic run ios
 
-##4. Plugin##
+##4. Plugins##
 
     To use the plugins add the following after you have added your platforms
 
@@ -40,9 +40,9 @@ Textbook-App
 
     (See SampleBarcodes.jpg for barcode samples)
 
-##5. Troubleshoot Barcode Scanner##
+##5. Troubleshoot Plugins##
 
-    If the scanner does not work you will need to delete a file, directory and follow a few other steps
+    If the plugins are not working you will need to delete a file, directory and follow a few other steps
 
     1. Delete file /plugins/ios.json
     2. Delete directory /platforms/ios
@@ -50,6 +50,6 @@ Textbook-App
     4. then $ ionic build ios
     5. then $ ionic run ios
 
-    This should force the ios.json file to recompile and add the scanner plugin
+    This should force the ios.json file to recompile and add the plugins
 
     (if running directly from Xcode, build an ios version and open directory platforms/ios in Xcode)
