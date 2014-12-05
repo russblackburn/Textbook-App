@@ -43,7 +43,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('NewCtrl', function($scope, Textbooks, TextBookAds, $http, $cordovaBarcodeScanner) {
+.controller('NewCtrl', function($scope, Textbooks, TextBookAds, $http, $cordovaBarcodeScanner, $cordovaCamera) {
     $scope.getTextbooks = function(textbooks){
         var promise = Textbooks.all();
         promise.then(
@@ -177,25 +177,29 @@ angular.module('starter.controllers', [])
     };
 
     $scope.fillInputs = function(testUPC){
-        var scanResults = testUPC;
+       $cordovaBarcodeScanner.scan().then(function(imageData) {
+            var  scanResults = imageData;
 
-        var getTextbook = function(textbookID){
-            var promise = Textbooks.get(textbookID);
-            promise.then(
-                function(data){
-                    console.log("Textbook Exists", data);
-                    // There is a book that exists: now fill all the text-fields
-                    $scope.updateTextbook(data);
-                    $scope.$apply();
-                },
-                function(err){
-                    console.log("Textbook Does Not Exist - Send Message & prefill", err);
-                    // There is not a book, create a new Book and a new Ad
+            var getTextbook = function (textbookID) {
+                var promise = Textbooks.get(textbookID);
+                promise.then(
+                    function (data) {
+                        console.log("Textbook Exists", data);
+                        // There is a book that exists: now fill all the text-fields
+                        $scope.updateTextbook(data);
+                        $scope.$apply();
+                    },
+                    function (err) {
+                        console.log("Textbook Does Not Exist - Send Message & prefill", err);
+                        // There is not a book, prefill the upc field
+                        $scope.textbook.upc = scanResults;
+                        $scope.$apply();
+                    }
+                )
+            };
+            getTextbook(scanResults);
+        });
 
-                }
-            )
-        };
-        getTextbook(scanResults);
 
     };
 
@@ -231,6 +235,31 @@ angular.module('starter.controllers', [])
 //            });
 //        };//end of barcode scanner
 //    });//end scanner book database http
+
+
+        //start of the camera to take a picture of the textbook
+        $scope.takePicture = function() {
+            var options = {
+                quality: 100,
+                destinationType: Camera.DestinationType.DATA_URL,
+                sourceType: Camera.PictureSourceType.CAMERA,
+                allowEdit: true,
+                encodingType: Camera.EncodingType.JPEG,
+                targetWidth: 400,
+                targetHeight: 400,
+                popoverOptions: CameraPopoverOptions,
+                saveToPhotoAlbum: false
+            };
+
+            $cordovaCamera.getPicture(options).then(function (imageData) {
+                //Here is the image data
+                $scope.textbook.imageURI = "data:image/jpeg;base64," + imageData;
+            }, function (err) {
+                // An error occurred. Show a message to the user
+            });
+        }
+
+
 })
 
 .controller('TextbookDetailCtrl', function($http, $scope, $stateParams, Textbooks) {

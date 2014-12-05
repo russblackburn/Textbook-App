@@ -5,8 +5,8 @@
         <div class="padding">
         <button class="button button-block button-stable" ng-click="fillInputs()">Scan Textbook Barcode</button>
         <button class="button button-block button-stable" ng-click="fillWithFake()">Fill with Test Data</button>
-            <button class="button button-block button-stable" ng-click="bookTest()">Test Book</button>
-            <button class="button button-block button-stable" ng-click="fillInputs('9781617290573')">Test Input Fill</button>
+            <!--<button class="button button-block button-stable" ng-click="bookTest()">Test Book</button>-->
+            <!--<button class="button button-block button-stable" ng-click="fillInputs('9781617290589')">Test Input Fill</button>-->
         </div>
 
         <form name="myForm" novalidate>
@@ -96,11 +96,22 @@
                         <textarea name="description" ng-model="textbook.description" placeholder="Comments"></textarea>
                     </label>
                 </div>
+
                 <div class="control-group">
-                    <label class="item item-input item-stacked-label">
-                        <span class="input-label">Add an Image</span>
-                        <input ng-model="textbook.image" required name="image" type="file">
-                    </label>
+
+                    <!--This is just for testing purposes-->
+                    <!--<label class="item item-input item-stacked-label">-->
+                        <!--<span class="input-label">Add an Image</span>-->
+                        <!--<input ng-model="textbook.image" required name="image" type="file">-->
+                    <!--</label>-->
+
+                <!--button to take a picture of a textbook cover-->
+                <div class="padding">
+                    <button class="button button-block button-stable" ng-click="takePicture()">Take Picture</button>
+                </div>
+                <!--display the picture taken underneath the Take Picture button-->
+                <div class="padding">
+                    <img ng-src="{{textbook.imageURI}}">
                 </div>
                 <div class="padding">
                     <button class="button button-block button-positive" ng-click="submit(myForm)">Submit</button>
