@@ -29,7 +29,11 @@ Textbook-App
 
 ##4. Plugin##
 
-    To use the barcode scanner add the following plugin after you have added your platforms
+    To use the plugins add the following after you have added your platforms
+
+    Camera
+
+    $ cordova plugin add org.apache.cordova.camera
 
     Barcode Scanner
     $ cordova plugin add https://github.com/wildabeast/BarcodeScanner.git
