@@ -120,7 +120,7 @@ angular.module('starter.controllers', [])
         $scope.showValidationMessages = true;
 
         if(!tbForm.$invalid){
-            $scope.convertImgToBlob($scope.textbook.image, $scope.showBlob());
+            //$scope.convertImgToBlob($scope.textbook.image, $scope.showBlob());
             var getTextbook = function(textbookID){
                 var promise = Textbooks.get(textbookID);
                 promise.then(
@@ -177,8 +177,8 @@ angular.module('starter.controllers', [])
     };
 
     $scope.fillInputs = function(testUPC){
-       $cordovaBarcodeScanner.scan().then(function(imageData) {
-            var  scanResults = imageData;
+      // $cordovaBarcodeScanner.scan().then(function(imageData) {
+            var  scanResults = testUPC;
 
             var getTextbook = function (textbookID) {
                 var promise = Textbooks.get(textbookID);
@@ -198,7 +198,7 @@ angular.module('starter.controllers', [])
                 )
             };
             getTextbook(scanResults);
-        });
+       // });
 
 
     };

@@ -65,7 +65,7 @@ angular.module('starter.services', [])
 
           textbook_db.put(
               {
-                  _id: new Date().toISOString(),
+                  _id: textbook.upc,
                   "course": textbook.course,
                   "title": textbook.title,
                   "isbn10": textbook.isbn10,
