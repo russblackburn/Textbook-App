@@ -204,37 +204,37 @@ angular.module('starter.controllers', [])
     };
 
     //adding barcode scanner for automatic input fields
-//    $http.get('data/book_scanner_database.json').success(function(data){
-//        var bookDatabase = data;
-//
-//        //adding barcode scanner to automatically fill input fields with textbook data
-//        $scope.fillInputs = function() {
-//            $cordovaBarcodeScanner.scan().then(function(imageData) {
-//
-//                var scanResults = imageData.text;
-//
-//
-//                for (var key in bookDatabase) {
-//                    if (bookDatabase.hasOwnProperty(key)) {
-//                        if (scanResults == bookDatabase[key]['upcCode']) {
-//                            document.getElementById('title').value = bookDatabase[key]['title'];
-//                            document.getElementById('isbn10').value = bookDatabase[key]['isbn10'];
-//                            document.getElementById('isbn13').value = bookDatabase[key]['isbn13'];
-//                            document.getElementById('UPC').value = bookDatabase[key]['upcCode'];
-//                        }
-//                    }
-//                }
-//
-//                if (imageData.cancelled == 1) {
-//                    alert("Cancelled Barcode Scan");
-//                } else {
-//                    console.log("Scan Not Cancelled ->" + imageData.cancelled);
-//                }
-//            }, function(error) {
-//                console.log("An error happened -> " + error);
-//            });
-//        };//end of barcode scanner
-//    });//end scanner book database http
+    $http.get('data/book_scanner_database.json').success(function(data){
+        var bookDatabase = data;
+
+        //adding barcode scanner to automatically fill input fields with textbook data
+        $scope.fillInputs = function() {
+            $cordovaBarcodeScanner.scan().then(function(imageData) {
+
+                var scanResults = imageData.text;
+
+
+                for (var key in bookDatabase) {
+                    if (bookDatabase.hasOwnProperty(key)) {
+                        if (scanResults == bookDatabase[key]['upcCode']) {
+                            document.getElementById('title').value = bookDatabase[key]['title'];
+                            document.getElementById('isbn10').value = bookDatabase[key]['isbn10'];
+                            document.getElementById('isbn13').value = bookDatabase[key]['isbn13'];
+                            document.getElementById('upc').value = bookDatabase[key]['upcCode'];
+                        }
+                    }
+                }
+
+                if (imageData.cancelled == 1) {
+                    alert("Cancelled Barcode Scan");
+                } else {
+                    console.log("Scan Not Cancelled ->" + imageData.cancelled);
+                }
+            }, function(error) {
+                console.log("An error happened -> " + error);
+            });
+        };//end of barcode scanner
+    });//end scanner book database http
 
 
         //start of the camera to take a picture of the textbook

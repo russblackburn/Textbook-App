@@ -4,9 +4,9 @@
         <!--This is the button used for the barcode scanner-->
         <div class="padding">
         <button class="button button-block button-stable" ng-click="fillInputs()">Scan Textbook Barcode</button>
-        <button class="button button-block button-stable" ng-click="fillWithFake()">Fill with Test Data</button>
+        <!--<button class="button button-block button-stable" ng-click="fillWithFake()">Fill with Test Data</button>-->
             <!--<button class="button button-block button-stable" ng-click="bookTest()">Test Book</button>-->
-            <button class="button button-block button-stable" ng-click="fillInputs('9781617290589')">Test Input Fill</button>
+            <!--<button class="button button-block button-stable" ng-click="fillInputs('9781617290589')">Test Input Fill</button>-->
         </div>
 
         <form name="myForm" novalidate>
@@ -29,14 +29,14 @@
                         <span class="error" ng-show="showValidationMessages && myForm.title.$error.required">Insert Title</span>
                     </label>
                 </div>
-                <div class="control-group">
-                    <label class="item item-input item-stacked-label">
-                        <span class="input-label">Course</span>
-                        <input name="course" ng-model="textbook.course" type="text" placeholder="DGM 3790">
+                <!--<div class="control-group">-->
+                    <!--<label class="item item-input item-stacked-label">-->
+                        <!--<span class="input-label">Course</span>-->
+                        <!--<input name="course" ng-model="textbook.course" type="text" placeholder="DGM 3790">-->
 
-                        <!--<span class="error" ng-show="showValidationMessages && myForm.course.$error.required">Insert Course Name</span>-->
-                    </label>
-                </div>
+                        <!--&lt;!&ndash;<span class="error" ng-show="showValidationMessages && myForm.course.$error.required">Insert Course Name</span>&ndash;&gt;-->
+                    <!--</label>-->
+                <!--</div>-->
                 <div class="control-group">
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">isbn10</span>
