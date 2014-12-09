@@ -163,7 +163,7 @@
 	  "condition":3,
 	  "imageURL":"img/books/head-first-php-&-mysql.jpg",
 	  "trade":true,
-	  "value":"22",
+	  "value":22,
 	  "dateListed":"2014-09-25 12:34:00",
 	  "sellerID":11
 	},
@@ -177,7 +177,7 @@
 	  "condition":2,
 	  "imageURL":"img/books/universal-principles-of-design.jpg",
 	  "trade":false,
-	  "value":"20",
+	  "value":20,
 	  "dateListed":"2014-03-01 07:01:00",
 	  "sellerID":10
 	},
@@ -191,7 +191,7 @@
 	  "condition":3,
 	  "imageURL":"img/books/the-elements-of-user-experience.png",
 	  "trade":true,
-	  "value":"12",
+	  "value":12,
 	  "dateListed":"2014-04-17 18:51:20",
 	  "sellerID":9
 	},
@@ -205,7 +205,7 @@
 	  "condition":5,
 	  "imageURL":"img/books/business-law-text-and-cases.jpg",
 	  "trade":false,
-	  "value":"276",
+	  "value":276,
 	  "dateListed":"2014-05-20 14:39:51",
 	  "sellerID":8
 	},
@@ -219,7 +219,7 @@
 	  "condition":2,
 	  "imageURL":"img/books/javascript-the-good-parts.jpg",
 	  "trade":true,
-	  "value":"9",
+	  "value":9,
 	  "dateListed":"2014-06-15 22:21:45",
 	  "sellerID":7
 	},
@@ -233,7 +233,7 @@
 	  "condition":5,
 	  "imageURL":"img/books/node-js-in-action.jpg",
 	  "trade":true,
-	  "value":"27",
+	  "value":27,
 	  "dateListed":"2014-07-11 14:21:45",
 	  "sellerID":4
 	},
@@ -247,7 +247,7 @@
 	  "condition":4,
 	  "imageURL":"img/books/college-physics.jpg",
 	  "trade":true,
-	  "value":"280",
+	  "value":280,
 	  "dateListed":"2014-08-09 19:51:45",
 	  "sellerID":5
 	},
@@ -261,7 +261,7 @@
 	  "condition":5,
 	  "imageURL":"img/books/physics-laboratory-experiments.jpg",
 	  "trade":false,
-	  "value":"150",
+	  "value":150,
 	  "dateListed":"2014-09-17 09:30:54",
 	  "sellerID":4
 	},
@@ -275,7 +275,7 @@
 	  "condition":2,
 	  "imageURL":"img/books/organic-chemistry.jpg",
 	  "trade":true,
-	  "value":"130",
+	  "value":130,
 	  "dateListed":"2014-10-25 11:02:09",
 	  "sellerID":3
 	},
@@ -289,7 +289,7 @@
 	  "condition":5,
 	  "imageURL":"img/books/essential-cell-biology.jpg",
 	  "trade":true,
-	  "value":"140",
+	  "value":140,
 	  "dateListed":"2014-11-13 11:58:39",
 	  "sellerID":2
 	},
@@ -303,7 +303,7 @@
 	  "condition":4,
 	  "imageURL":"img/books/javascript-patterns.jpg",
 	  "trade":true,
-	  "value":"12",
+	  "value":12,
 	  "dateListed":"2014-12-09 23:50:19",
 	  "sellerID":1
 	},
@@ -317,7 +317,7 @@
 	  "condition":3,
 	  "imageURL":"img/books/head-first-php-&-mysql.jpg",
 	  "trade":true,
-	  "value":"21",
+	  "value":21,
 	  "dateListed":"2014-07-28 12:34:00",
 	  "sellerID":9
 	},
@@ -331,7 +331,7 @@
 	  "condition":2,
 	  "imageURL":"img/books/universal-principles-of-design.jpg",
 	  "trade":false,
-	  "value":"13",
+	  "value":13,
 	  "dateListed":"2014-03-01 07:01:00",
 	  "sellerID":10
 	},
@@ -345,7 +345,7 @@
 	  "condition":3,
 	  "imageURL":"img/books/the-elements-of-user-experience.png",
 	  "trade":true,
-	  "value":"14",
+	  "value":14,
 	  "dateListed":"2014-01-14 18:51:20",
 	  "sellerID":1
 	},
@@ -359,7 +359,7 @@
 	  "condition":5,
 	  "imageURL":"img/books/business-law-text-and-cases.jpg",
 	  "trade":false,
-	  "value":"250",
+	  "value":250,
 	  "dateListed":"2014-10-19 14:39:51",
 	  "sellerID":2
 	},
@@ -373,7 +373,7 @@
 	  "condition":2,
 	  "imageURL":"img/books/javascript-the-good-parts.jpg",
 	  "trade":true,
-	  "value":"18",
+	  "value":18,
 	  "dateListed":"2014-11-20 22:21:45",
 	  "sellerID":3
 	},
@@ -387,7 +387,7 @@
 	  "condition":5,
 	  "imageURL":"img/books/node-js-in-action.jpg",
 	  "trade":true,
-	  "value":"25",
+	  "value":25,
 	  "dateListed":"2014-12-20 14:21:45",
 	  "sellerID":4
 	},
@@ -401,7 +401,7 @@
 	  "condition":4,
 	  "imageURL":"img/books/college-physics.jpg",
 	  "trade":true,
-	  "value":"270",
+	  "value":270,
 	  "dateListed":"2014-05-10 19:51:45",
 	  "sellerID":5
 	},
@@ -415,7 +415,7 @@
 	  "condition":5,
 	  "imageURL":"img/books/physics-laboratory-experiments.jpg",
 	  "trade":false,
-	  "value":"145",
+	  "value":145,
 	  "dateListed":"2014-01-19 09:30:54",
 	  "sellerID":6
 	},
@@ -429,7 +429,7 @@
 	  "condition":2,
 	  "imageURL":"img/books/organic-chemistry.jpg",
 	  "trade":true,
-	  "value":"120",
+	  "value":120,
 	  "dateListed":"2014-06-26 11:02:09",
 	  "sellerID":7
 	},
@@ -443,7 +443,7 @@
 	  "condition":5,
 	  "imageURL":"img/books/essential-cell-biology.jpg",
 	  "trade":true,
-	  "value":"115",
+	  "value":115,
 	  "dateListed":"2014-01-05 11:58:39",
 	  "sellerID":8
 	},
@@ -457,7 +457,7 @@
 	  "condition":4,
 	  "imageURL":"img/books/javascript-patterns.jpg",
 	  "trade":true,
-	  "value":"12",
+	  "value":12,
 	  "dateListed":"2014-02-10 23:50:19",
 	  "sellerID":9
 	}
