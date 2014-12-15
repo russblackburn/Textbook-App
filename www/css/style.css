@@ -41,3 +41,9 @@ div.seller-image {
     float: left;
     padding: 5px;
 }
+
+.button {
+    padding: 3px;
+    margin: 5px;
+    text-align: center;
+}
