@@ -1,17 +1,16 @@
 <ion-view title="Find A Book">
     <ion-content>
         <h1></h1>
-    <div class="row">
-       <div class="col">
+
            <div class="list list-inset">
             <label class="item item-input">
                 <i class="icon ion-search placeholder-icon"></i>
                 <!--added id and value attributes so that the barcode scanner controller can access the input field-->
-                <input id="textbookInput" value="" type="text" ng-model="query" placeholder="Search by: Book or ISBN">
+                <input id="textbookInput" value="" type="text" ng-model="query" placeholder="Search by: Title or ISBN">
             </label>
             </div>
-        </div>
-            <div class="col">
+
+            <div class="sort">
             <label> Sort by: </label>
                 <select ng-model="orderProp">
                     <option value="title">Title</option>
@@ -20,10 +19,11 @@
                     <option value="condition">Condition</option>
                 </select>
              </div>
-        </div>
 
         <!--This is the button used for the barcode scanner-->
-        <button class="button button-block" ng-click="scanBarcode()">Scan Textbook Barcode</button>
+        <div class="padding">
+        <button class="button button-block button-outline button-calm" ng-click="scanBarcode()">Scan Textbook Barcode</button>
+        </div>
 
         <ion-list class="list">
             <ion-item class="item item-icon-right item-thumbnail-left" ng-repeat="book in books | filter:query | orderBy:orderProp" href="#/tab/textbook/{{book.id}}">
