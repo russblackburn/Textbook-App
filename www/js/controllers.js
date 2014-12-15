@@ -337,10 +337,19 @@ angular.module('starter.controllers', [])
 .controller('AccountCtrl', function($scope, $stateParams, Users) {
   var users = Users.getUsers()
     .success(function(usr){
+      var rating;
+      var defaultCon = "-outline";
+      var conArray = [defaultCon,defaultCon,defaultCon,defaultCon,defaultCon];
       for (var key in usr) {
           if (usr.hasOwnProperty(key)) {
             if ($stateParams.userId == usr[key]['sellerID']) {
               $scope.seller = usr[key];
+              rating = usr[key]['rating'];
+              conArray.length = 5;
+              for(var i = 0; i < rating; i++){
+                conArray[i] = "";
+              }
+              $scope.starsCon = conArray;
               break;
             }
           }
