@@ -23,7 +23,7 @@
         </div>
 
         <!--This is the button used for the barcode scanner-->
-        <button class="button" ng-click="scanBarcode()">Scan Textbook Barcode</button>
+        <button class="button button-block" ng-click="scanBarcode()">Scan Textbook Barcode</button>
 
         <ion-list class="list">
             <ion-item class="item item-icon-right item-thumbnail-left" ng-repeat="book in books | filter:query | orderBy:orderProp" href="#/tab/textbook/{{book.id}}">
