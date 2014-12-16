@@ -2,9 +2,21 @@ angular.module('starter.controllers', [])
 
     //injected $cordovaBarcodeScanner service
 .controller('DashCtrl', function($scope, $http, $cordovaBarcodeScanner, Textbooks) {
-  $http.get('data/book_list.json').success(function(data){
-      $scope.books = data;
-  });
+  $scope.getBooksFromFile = function(){
+      var promise = Textbooks.allBF();
+      promise.then(
+          function(data){
+              console.log("Success Found Textbooks", data.data);
+              $scope.books = data.data;
+              $scope.books.$apply;
+          },
+          function(err){
+              console.log("FAIL Textbooks not Found!", err);
+          }
+      )
+  };
+  $scope.getBooksFromFile();
+
 
 //  $scope.db = new PouchDB('http://dgm3790.iriscouch.com/textbook_db');
 //
@@ -48,7 +60,7 @@ angular.module('starter.controllers', [])
         var promise = Textbooks.all();
         promise.then(
             function(data){
-                console.log("Success-DATA", data.data.rows);
+                console.log("Success-DB-DATA", data.data.rows);
                 $scope.textbooks = data.data.rows;
             },
             function(err){
@@ -202,62 +214,70 @@ angular.module('starter.controllers', [])
 
 
     };
+    $scope.getJSONTextbooks = function(){
+        var promise = Textbooks.allSF();
+        promise.then(
+            function(data){
+                console.log("Success-File-DATA", data.data);
+                var bookDatabase = data.data;
 
-    //adding barcode scanner for automatic input fields
-    $http.get('data/book_scanner_database.json').success(function(data){
-        var bookDatabase = data;
+                //adding barcode scanner to automatically fill input fields with textbook data
+                $scope.fillInputs = function() {
+                    $cordovaBarcodeScanner.scan().then(function(imageData) {
 
-        //adding barcode scanner to automatically fill input fields with textbook data
-        $scope.fillInputs = function() {
-            $cordovaBarcodeScanner.scan().then(function(imageData) {
-
-                var scanResults = imageData.text;
+                        var scanResults = imageData.text;
 
 
-                for (var key in bookDatabase) {
-                    if (bookDatabase.hasOwnProperty(key)) {
-                        if (scanResults == bookDatabase[key]['upcCode']) {
-                            document.getElementById('title').value = bookDatabase[key]['title'];
-                            document.getElementById('isbn10').value = bookDatabase[key]['isbn10'];
-                            document.getElementById('isbn13').value = bookDatabase[key]['isbn13'];
-                            document.getElementById('upc').value = bookDatabase[key]['upcCode'];
+                        for (var key in bookDatabase) {
+                            if (bookDatabase.hasOwnProperty(key)) {
+                                if (scanResults == bookDatabase[key]['upcCode']) {
+                                    document.getElementById('title').value = bookDatabase[key]['title'];
+                                    document.getElementById('isbn10').value = bookDatabase[key]['isbn10'];
+                                    document.getElementById('isbn13').value = bookDatabase[key]['isbn13'];
+                                    document.getElementById('upc').value = bookDatabase[key]['upcCode'];
+                                }
+                            }
                         }
-                    }
-                }
 
-                if (imageData.cancelled == 1) {
-                    alert("Cancelled Barcode Scan");
-                } else {
-                    console.log("Scan Not Cancelled ->" + imageData.cancelled);
-                }
-            }, function(error) {
-                console.log("An error happened -> " + error);
-            });
-        };//end of barcode scanner
-    });//end scanner book database http
+                        if (imageData.cancelled == 1) {
+                            alert("Cancelled Barcode Scan");
+                        } else {
+                            console.log("Scan Not Cancelled ->" + imageData.cancelled);
+                        }
+                    }, function(error) {
+                        console.log("An error happened -> " + error);
+                    });
+                };//end of barcode scanner
 
+            },
+            function(err){
+                console.log("FAIL", err);
+            }
+        )
+    };
+    $scope.getJSONTextbooks();
 
-        //start of the camera to take a picture of the textbook
-        $scope.takePicture = function() {
-            var options = {
-                quality: 100,
-                destinationType: Camera.DestinationType.DATA_URL,
-                sourceType: Camera.PictureSourceType.CAMERA,
-                allowEdit: true,
-                encodingType: Camera.EncodingType.JPEG,
-                targetWidth: 400,
-                targetHeight: 400,
-                popoverOptions: CameraPopoverOptions,
-                saveToPhotoAlbum: false
-            };
+    //start of the camera to take a picture of the textbook
+    $scope.takePicture = function() {
+        var options = {
+            quality: 100,
+            destinationType: Camera.DestinationType.DATA_URL,
+            sourceType: Camera.PictureSourceType.CAMERA,
+            allowEdit: true,
+            encodingType: Camera.EncodingType.JPEG,
+            targetWidth: 400,
+            targetHeight: 400,
+            popoverOptions: CameraPopoverOptions,
+            saveToPhotoAlbum: false
+        };
 
-            $cordovaCamera.getPicture(options).then(function (imageData) {
-                //Here is the image data
-                $scope.textbook.imageURI = "data:image/jpeg;base64," + imageData;
-            }, function (err) {
-                // An error occurred. Show a message to the user
-            });
-        }
+        $cordovaCamera.getPicture(options).then(function (imageData) {
+            //Here is the image data
+            $scope.textbook.imageURI = "data:image/jpeg;base64," + imageData;
+        }, function (err) {
+            // An error occurred. Show a message to the user
+        });
+    }
 
 
 })
@@ -284,55 +304,81 @@ angular.module('starter.controllers', [])
     }
     return val;
   }
-  $http.get('data/book_list.json').success(function(data){
-      var books = data;
-      var condition;
-      var defaultCon = "-outline";
-      var conArray = [defaultCon,defaultCon,defaultCon,defaultCon,defaultCon];
-      for (var key in books) {
-        if (books.hasOwnProperty(key)) {
-          if ($stateParams.textbookId == books[key]['id']) {
-            $scope.textbook = books[key];
-            condition = books[key]['condition'];
-            conArray.length = 5;
-            for(var i = 0; i < condition; i++){
-              conArray[i] = "";
+
+    $scope.getBooksFromFile = function(){
+        var promise = Textbooks.allBF();
+        promise.then(
+            function(data){
+                console.log("SUCCESSFULL GOT Books From File", data.data);
+                var books = data.data;
+                var condition;
+                var defaultCon = "-outline";
+                var conArray = [defaultCon,defaultCon,defaultCon,defaultCon,defaultCon];
+                for (var key in books) {
+                    if (books.hasOwnProperty(key)) {
+                        if ($stateParams.textbookId == books[key]['id']) {
+                            $scope.textbook = books[key];
+                            condition = books[key]['condition'];
+                            conArray.length = 5;
+                            for(var i = 0; i < condition; i++){
+                                conArray[i] = "";
+                            }
+                            $scope.starsCon = conArray;
+
+                            $scope.textbook['trade_text'] = (books[key]['trade'] == true ? books[key]['title']+' is up for trade, please make an offer' : books[key]['title']+' is not up for trade, cash payments only')
+
+                            $scope.textbook.timestamp = books[key]['dateListed'].split(" ");
+                            $scope.textbook.timestamp.day = $scope.textbook.timestamp[0].split("-");
+                            $scope.textbook.timestamp.time_ = $scope.textbook.timestamp[1].split("-");
+                            $scope.textbook.$apply;
+                            console.log("TEXTBOOK: ", $scope.textbook);
+                        }
+                    }
+                }
+
+                $scope.getUserFromFile = function(){
+                    var promise = Textbooks.allUF();
+                    promise.then(
+                        function(data){
+                            console.log("SUCCESSFULL Users From File", data.data);
+
+                            var user = data.data;
+                            var rating;
+                            var defaultVal = "-outline";
+                            var ratingArray = [defaultVal,defaultVal,defaultVal,defaultVal,defaultVal];
+                            $scope.stars = [];
+                            for (var key in user) {
+                                if (user.hasOwnProperty(key)) {
+                                    if ($scope.textbook['sellerID'] == user[key]['sellerID']) {
+                                        $scope.seller = user[key];
+                                        rating = user[key]['rating'];
+                                        ratingArray.length = 5;
+                                        for(var i = 0; i < rating; i++){
+                                            ratingArray[i] = "";
+                                        }
+                                        // $scope.stars = JSON.stringify(ratingArray);
+                                        $scope.starsRating = ratingArray;
+                                        $scope.seller.$apply;
+                                    }
+                                }
+                            }
+                        },
+                        function(err){
+                            console.log("FAIL Textbooks not Found!", err);
+                        }
+                    );
+                };
+                $scope.getUserFromFile();
+            },
+            function(err){
+                console.log("FAIL Textbooks not Found!", err);
             }
-            $scope.starsCon = conArray;
-
-            $scope.textbook['trade_text'] = (books[key]['trade'] == true ? books[key]['title']+' is up for trade, please make an offer' : books[key]['title']+' is not up for trade, cash payments only')
-
-            $scope.textbook.timestamp = books[key]['dateListed'].split(" ");
-            $scope.textbook.timestamp.day = $scope.textbook.timestamp[0].split("-");
-            $scope.textbook.timestamp.time_ = $scope.textbook.timestamp[1].split("-");
-          }
-        }
-      }
-  });
-  $http.get('data/user_list.json').success(function(data){
-      var user = data;
-      var rating;
-      var defaultVal = "-outline";
-      var ratingArray = [defaultVal,defaultVal,defaultVal,defaultVal,defaultVal];
-      $scope.stars = [];
-      for (var key in user) {
-        if (user.hasOwnProperty(key)) {
-          if ($scope.textbook['sellerID'] == user[key]['sellerID']) {
-            $scope.seller = user[key];
-            rating = user[key]['rating'];
-            ratingArray.length = 5;
-            for(var i = 0; i < rating; i++){
-              ratingArray[i] = "";
-            }
-            // $scope.stars = JSON.stringify(ratingArray);
-            $scope.starsRating = ratingArray;
-          }
-        }
-      }
-  });
-
+        )
+    };
+    $scope.getBooksFromFile();
 
 })
+
 
 .controller('AccountCtrl', function($scope, $stateParams, Users) {
   var users = Users.getUsers()

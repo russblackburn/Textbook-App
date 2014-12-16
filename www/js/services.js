@@ -8,6 +8,15 @@ angular.module('starter.services', [])
   var textbooks = [];
   var date = new Date().toLocaleString();
   return {
+      allUF: function() {
+        return $http.get('data/user_list.json');
+      },
+      allBF: function() {
+        return $http.get('data/book_list.json');
+      },
+      allSF: function(){
+        return $http.get('data/book_scanner_database.json');
+      },
       all: function () {
           return $http.get('http://dgm3790.iriscouch.com/textbook_db/_design/apiv1/_view/textbooks');
       },
